@@ -2,6 +2,7 @@
 *        Script SQLSERVER
 ------------------------------------------------------------*/
 
+BEGIN TRANSACTION initialize;
 
 /*------------------------------------------------------------
 -- Table: Client
@@ -153,7 +154,7 @@ ALTER TABLE Commande
 
 ALTER TABLE concerner
 	ADD CONSTRAINT concerner_Produit_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Produit)
 	REFERENCES Produit(ID);
 
 ALTER TABLE concerner
@@ -163,7 +164,7 @@ ALTER TABLE concerner
 
 ALTER TABLE situer
 	ADD CONSTRAINT situer_Client_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Client)
 	REFERENCES Client(ID);
 
 ALTER TABLE situer
@@ -173,7 +174,7 @@ ALTER TABLE situer
 
 ALTER TABLE specifier
 	ADD CONSTRAINT specifier_Type_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Type)
 	REFERENCES Type(ID);
 
 ALTER TABLE specifier
@@ -193,7 +194,7 @@ ALTER TABLE Employe
 
 ALTER TABLE gerer
 	ADD CONSTRAINT gerer_Employe_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Employe)
 	REFERENCES Employe(ID);
 
 ALTER TABLE gerer
@@ -203,7 +204,7 @@ ALTER TABLE gerer
 
 ALTER TABLE regir
 	ADD CONSTRAINT regir_Employe_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Employe)
 	REFERENCES Employe(ID);
 
 ALTER TABLE regir
@@ -213,10 +214,13 @@ ALTER TABLE regir
 
 ALTER TABLE superviser
 	ADD CONSTRAINT superviser_Commande_FK
-	FOREIGN KEY (ID)
+	FOREIGN KEY (ID_Commande)
 	REFERENCES Commande(ID);
 
 ALTER TABLE superviser
 	ADD CONSTRAINT superviser_Employe_FK
 	FOREIGN KEY (ID_Employe)
 	REFERENCES Employe(ID);
+
+
+COMMIT TRANSACTION initialize;
