@@ -1,7 +1,7 @@
 #pragma once
 #include "Table.h"
 
-class Commande : public Table
+ref class Commande : public Table
 {
 public:
 

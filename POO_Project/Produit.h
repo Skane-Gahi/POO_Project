@@ -1,7 +1,7 @@
 #pragma once
 #include "Table.h"
 
-class Produit : public Table
+ref class Produit : public Table
 {
 public:
 

@@ -2,21 +2,22 @@
 
 using namespace System::IO;
 
-System::Data::DataSet^ Table::afficher(System::String^ NomTable) 
+Table::Table() 
 {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
-	System::String^ querystring = "SELECT * FROM [ProjetPOO].[dbo].[" + NomTable + "];";
+	this->connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	this->connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+}
 
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, connection);
 
+System::Data::DataSet^ Table::ExecuteAdapter(System::Data::SqlClient::SqlDataAdapter^ adapter, System::String^ SourceTable) 
+{
 	System::Data::DataSet^ dataset = gcnew System::Data::DataSet();
 
 	try
 	{
-		connection->Open();
-		adapter->Fill(dataset, NomTable);
-		connection->Close();
+		this->connection->Open();
+		adapter->Fill(dataset, SourceTable);
+		this->connection->Close();
 
 		return dataset;
 
@@ -28,33 +29,26 @@ System::Data::DataSet^ Table::afficher(System::String^ NomTable)
 	}
 }
 
-void Table::supprimer(System::String^ NomTable) 
+void Table::ExecuteCommand(System::Data::SqlClient::SqlCommand^ command) 
 {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
-	System::String^ querystring = "DELETE FROM" + NomTable + ";";
-
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
-
 	try
 	{
-		connection->Open();
-
+		this->connection->Open();
 		command->ExecuteNonQuery();
-
-		connection->Close();
-
+		this->connection->Close();
 	}
 	catch (System::Exception^ ex)
 	{
-		System::Console::WriteLine(ex->Message);
+		System::Windows::Forms::MessageBox::Show(ex->Message);
 	}
 }
 
-void Table::modifier() {
+System::Data::DataSet^ Table::afficher(System::String^ NomTable) 
+{
+	System::String^ querystring = "SELECT * FROM [ProjetPOO].[dbo].[" + NomTable + "];";
 
+	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, connection);
+
+	return this->ExecuteAdapter(adapter, NomTable);
 }
 
-void Table::ajouter() {
-
-}

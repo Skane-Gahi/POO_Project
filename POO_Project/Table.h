@@ -1,12 +1,18 @@
 #pragma once
 
-class Table
+ref class Table
 {
+
+protected :
+	
+	System::String^ connectionString;
+	System::Data::SqlClient::SqlConnection^ connection;
+
 public :
 	
-	virtual System::Data::DataSet^ afficher(System::String^);
-	virtual void supprimer(System::String^);
-	virtual void ajouter();
-	virtual void modifier();
+	Table();
+	System::Data::DataSet^ afficher(System::String^);
+	System::Data::DataSet^ ExecuteAdapter(System::Data::SqlClient::SqlDataAdapter^, System::String^);
+	void ExecuteCommand(System::Data::SqlClient::SqlCommand^);
 };
 

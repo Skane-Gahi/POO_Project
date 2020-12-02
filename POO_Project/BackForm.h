@@ -1608,7 +1608,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		Employe* TableEmploye = new Employe;
+		Employe^ TableEmploye = gcnew Employe;
 		DataSet^ DS = TableEmploye->afficher();
 
 		this->dataGridView1->DataSource = DS;
@@ -1630,7 +1630,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		Client* TableClient = new Client;
+		Client^ TableClient = gcnew Client;
 		DataSet^ DS = TableClient->afficher();
 
 		this->dataGridView1->DataSource = DS;
@@ -1653,7 +1653,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		Commande* TableCommande = new Commande;
+		Commande^ TableCommande = gcnew Commande;
 		DataSet^ DS = TableCommande->afficher();
 
 		activatebuttons();
@@ -1676,7 +1676,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		String^ NT = "Produit";
-		Produit* TableProduit = new Produit;
+		Produit^ TableProduit = gcnew Produit;
 		DataSet^ DS = TableProduit->afficher(NT);
 
 		activatebuttons();
@@ -1697,7 +1697,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		String^ NT = "Statistiques";
-		Table* TableEmploye = new Table;
+		Table^ TableEmploye = gcnew Table;
 		DataSet^ DS = TableEmploye->afficher(NT);
 
 		activatebuttons();
@@ -1772,23 +1772,23 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 
 		if (this->tableLayoutPanel4->Visible == true) {
 			
-			Employe* TableEmploye = new Employe;
+			Employe^ TableEmploye = gcnew Employe;
 			DS = TableEmploye->afficher();
 		}
 		else if (this->tableLayoutPanel5->Visible == true) {
 
-			Client* TableClient = new Client;
+			Client^ TableClient = gcnew Client;
 			DS = TableClient->afficher();
 		}
 		else if (this->tableLayoutPanel6->Visible == true) {
 
-			Commande* TableCommande = new Commande;
+			Commande^ TableCommande = gcnew Commande;
 			DS = TableCommande->afficher();
 		}
 		else if (this->tableLayoutPanel7->Visible == true) {
 
 			String^ NT = "Produit";
-			Produit* TableProduit = new Produit;
+			Produit^ TableProduit = gcnew Produit;
 			DS = TableProduit->afficher(NT);
 		}
 
@@ -1801,22 +1801,22 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	{
 		if (this->tableLayoutPanel4->Visible == true) {
 			
-			Employe* emp = new Employe;
+			Employe^ emp = gcnew Employe;
 			emp->ajouter(this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
 		}
 		else if (this->tableLayoutPanel5->Visible == true) {
 
-			Client* clt = new Client;
+			Client^ clt = gcnew Client;
 			clt->ajouter(this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
 		}
 		else if (this->tableLayoutPanel6->Visible == true) {
 
-			Commande* cmd = new Commande;
+			Commande^ cmd = gcnew Commande;
 			cmd->ajouter(this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
 		}
 		else if (this->tableLayoutPanel7->Visible == true) {
 
-			Produit* pdt = new Produit;
+			Produit^ pdt = gcnew Produit;
 			pdt->ajouter(this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
 		}
 	}
@@ -1830,22 +1830,22 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 
 		if (this->tableLayoutPanel4->Visible == true) {
 
-			Employe* emp = new Employe;
+			Employe^ emp = gcnew Employe;
 			emp->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
 		}
 		else if (this->tableLayoutPanel5->Visible == true) {
 
-			Client* clt = new Client;
+			Client^ clt = gcnew Client;
 			clt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString(), this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
  		}
 		else if (this->tableLayoutPanel6->Visible == true) {
 
-			Commande* cmd = new Commande;
+			Commande^ cmd = gcnew Commande;
 			cmd->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
 		}
 		else if (this->tableLayoutPanel7->Visible == true) {
 
-			Produit* pdt = new Produit;
+			Produit^ pdt = gcnew Produit;
 			pdt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
 		}
 	}
@@ -1859,22 +1859,22 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 
 		if (this->tableLayoutPanel4->Visible == true) {
 
-			Employe* emp = new Employe;
+			Employe^ emp = gcnew Employe;
 			emp->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString());
 		}
 		else if (this->tableLayoutPanel5->Visible == true) {
 			
-			Client* clt = new Client;
+			Client^ clt = gcnew Client;
 			clt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString());
 		}
 		else if (this->tableLayoutPanel6->Visible == true) {
 
-			Commande* cmd = new Commande;
+			Commande^ cmd = gcnew Commande;
 			cmd->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
 		}
 		else if (this->tableLayoutPanel7->Visible == true) {
 
-			Produit* pdt = new Produit;
+			Produit^ pdt = gcnew Produit;
 			pdt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
 		}
 	}

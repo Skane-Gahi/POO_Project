@@ -30,12 +30,6 @@
     <ClInclude Include="Employe.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Humain.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Adresse.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Commande.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -60,12 +54,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Employe.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Humain.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Adresse.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Commande.cpp">
