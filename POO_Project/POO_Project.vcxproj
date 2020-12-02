@@ -156,8 +156,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="afficherClientScript.sql" />
+    <None Include="afficherCommandeScript.sql" />
     <None Include="afficherEmployeScript.sql" />
+    <None Include="ajouterClientScript.sql" />
+    <None Include="ajouterCommandeScript.sql" />
     <None Include="ajouterEmployeScript.sql" />
+    <None Include="ajouterProduitScript.sql" />
+    <None Include="modifierClientScript.sql" />
+    <None Include="modifierCommandeScript.sql" />
+    <None Include="modifierEmployeScript.sql" />
+    <None Include="modifierProduitScript.sql" />
+    <None Include="supprimerClientScript.sql" />
+    <None Include="supprimerCommandeScript.sql" />
+    <None Include="supprimerEmployeScript.sql" />
+    <None Include="supprimerProduitScript.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

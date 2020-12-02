@@ -3,6 +3,8 @@
 #include "Table.h"
 #include "Client.h"
 #include "Employe.h"
+#include "Produit.h"
+#include "Commande.h"
 
 namespace BackForm {
 
@@ -106,7 +108,86 @@ namespace BackForm {
 		/// Variable nécessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-		int Index;
+	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel5;
+	private: System::Windows::Forms::Label^ label_c_nom;
+	private: System::Windows::Forms::Label^ label_c_prenom;
+	private: System::Windows::Forms::Label^ label_c_date;
+	private: System::Windows::Forms::Label^ label_c_nbcommande;
+	private: System::Windows::Forms::Label^ label_c_adrfact;
+	private: System::Windows::Forms::Label^ label_c_villefact;
+	private: System::Windows::Forms::Label^ label_c_cpfact;
+	private: System::Windows::Forms::Label^ label_c_adrliv;
+	private: System::Windows::Forms::Label^ label_c_villeliv;
+	private: System::Windows::Forms::Label^ label_c_cpliv;
+	private: System::Windows::Forms::TextBox^ textBox1_c_cpliv;
+
+
+
+
+
+
+
+
+
+
+
+private: System::Windows::Forms::TextBox^ textBox_c_villeliv;
+
+private: System::Windows::Forms::TextBox^ textBox_c_adrliv;
+
+private: System::Windows::Forms::TextBox^ textBox_c_cpfact;
+
+private: System::Windows::Forms::TextBox^ textBox_c_villefact;
+
+private: System::Windows::Forms::TextBox^ textBox_c_adrfact;
+
+private: System::Windows::Forms::TextBox^ textBox_c_nbcommande;
+
+private: System::Windows::Forms::TextBox^ textBox_c_date;
+
+private: System::Windows::Forms::TextBox^ textBox_c_prenom;
+
+private: System::Windows::Forms::TextBox^ textBox_c_nom;
+private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel7;
+private: System::Windows::Forms::Label^ label_p_desi;
+private: System::Windows::Forms::Label^ label_p_pht;
+private: System::Windows::Forms::Label^ label_p_qte;
+
+
+
+private: System::Windows::Forms::Label^ label_p_seuil;
+private: System::Windows::Forms::Label^ label_p_tva;
+private: System::Windows::Forms::TextBox^ textBox_p_tva;
+
+
+
+
+
+
+private: System::Windows::Forms::TextBox^ textBox_p_desi;
+private: System::Windows::Forms::TextBox^ textBox_p_pht;
+private: System::Windows::Forms::TextBox^ textBox_p_qte;
+private: System::Windows::Forms::TextBox^ textBox_p_seuil;
+private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel6;
+private: System::Windows::Forms::TextBox^ textBox_d_produits;
+private: System::Windows::Forms::TextBox^ textBox_d_qtes;
+private: System::Windows::Forms::Label^ label_d_ref;
+private: System::Windows::Forms::Label^ label_d_valide;
+private: System::Windows::Forms::Label^ label_d_envoi;
+private: System::Windows::Forms::Label^ label_paiment;
+private: System::Windows::Forms::Label^ label_d_moyen;
+private: System::Windows::Forms::Label^ label_total;
+private: System::Windows::Forms::Label^ label_d_produits;
+private: System::Windows::Forms::Label^ label_d_qtes;
+private: System::Windows::Forms::TextBox^ textBox_d_ref;
+private: System::Windows::Forms::TextBox^ textBox_d_valide;
+private: System::Windows::Forms::TextBox^ textBox_d_paiement;
+private: System::Windows::Forms::TextBox^ textBox_d_envoi;
+private: System::Windows::Forms::TextBox^ textBox_d_moyen;
+private: System::Windows::Forms::TextBox^ textBox_d_total;
+
+
+	int Index;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -140,18 +221,70 @@ namespace BackForm {
 			this->textBox_date_embauche = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_prenom = (gcnew System::Windows::Forms::TextBox());
 			this->label_prenom = (gcnew System::Windows::Forms::Label());
-			this->label_nom = (gcnew System::Windows::Forms::Label());
 			this->label_date_embauche = (gcnew System::Windows::Forms::Label());
 			this->label_poste = (gcnew System::Windows::Forms::Label());
 			this->label_adresse = (gcnew System::Windows::Forms::Label());
 			this->label_ville = (gcnew System::Windows::Forms::Label());
 			this->label_cp = (gcnew System::Windows::Forms::Label());
 			this->textBox_nom = (gcnew System::Windows::Forms::TextBox());
+			this->label_nom = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel5 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->textBox1_c_cpliv = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_villeliv = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_adrliv = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_cpfact = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_villefact = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_adrfact = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_nbcommande = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_date = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_prenom = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_c_nom = (gcnew System::Windows::Forms::TextBox());
+			this->label_c_nom = (gcnew System::Windows::Forms::Label());
+			this->label_c_prenom = (gcnew System::Windows::Forms::Label());
+			this->label_c_date = (gcnew System::Windows::Forms::Label());
+			this->label_c_nbcommande = (gcnew System::Windows::Forms::Label());
+			this->label_c_adrfact = (gcnew System::Windows::Forms::Label());
+			this->label_c_villefact = (gcnew System::Windows::Forms::Label());
+			this->label_c_cpfact = (gcnew System::Windows::Forms::Label());
+			this->label_c_adrliv = (gcnew System::Windows::Forms::Label());
+			this->label_c_villeliv = (gcnew System::Windows::Forms::Label());
+			this->label_c_cpliv = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->textBox_p_tva = (gcnew System::Windows::Forms::TextBox());
+			this->label_p_desi = (gcnew System::Windows::Forms::Label());
+			this->label_p_pht = (gcnew System::Windows::Forms::Label());
+			this->label_p_qte = (gcnew System::Windows::Forms::Label());
+			this->label_p_seuil = (gcnew System::Windows::Forms::Label());
+			this->label_p_tva = (gcnew System::Windows::Forms::Label());
+			this->textBox_p_desi = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_p_pht = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_p_qte = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_p_seuil = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel6 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->textBox_d_produits = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_qtes = (gcnew System::Windows::Forms::TextBox());
+			this->label_d_ref = (gcnew System::Windows::Forms::Label());
+			this->label_d_valide = (gcnew System::Windows::Forms::Label());
+			this->label_d_envoi = (gcnew System::Windows::Forms::Label());
+			this->label_paiment = (gcnew System::Windows::Forms::Label());
+			this->label_d_moyen = (gcnew System::Windows::Forms::Label());
+			this->label_total = (gcnew System::Windows::Forms::Label());
+			this->label_d_produits = (gcnew System::Windows::Forms::Label());
+			this->label_d_qtes = (gcnew System::Windows::Forms::Label());
+			this->textBox_d_ref = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_valide = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_paiement = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_envoi = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_moyen = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_total = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
 			this->tableLayoutPanel4->SuspendLayout();
+			this->tableLayoutPanel5->SuspendLayout();
+			this->tableLayoutPanel7->SuspendLayout();
+			this->tableLayoutPanel6->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -273,6 +406,7 @@ namespace BackForm {
 			this->dataGridView1->Location = System::Drawing::Point(706, 0);
 			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->Size = System::Drawing::Size(715, 640);
 			this->dataGridView1->TabIndex = 1;
 			// 
@@ -291,6 +425,7 @@ namespace BackForm {
 			this->tableLayoutPanel2->Controls->Add(this->button_next, 2, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button_previous, 1, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button__first, 0, 0);
+			this->tableLayoutPanel2->Enabled = false;
 			this->tableLayoutPanel2->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tableLayoutPanel2->Location = System::Drawing::Point(224, 347);
@@ -368,6 +503,7 @@ namespace BackForm {
 			this->tableLayoutPanel3->Controls->Add(this->button_modifier, 0, 1);
 			this->tableLayoutPanel3->Controls->Add(this->button_supprimer, 0, 2);
 			this->tableLayoutPanel3->Controls->Add(this->button_ajouter, 0, 0);
+			this->tableLayoutPanel3->Enabled = false;
 			this->tableLayoutPanel3->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tableLayoutPanel3->Location = System::Drawing::Point(224, 387);
@@ -393,6 +529,7 @@ namespace BackForm {
 			this->button_modifier->TabIndex = 4;
 			this->button_modifier->Text = L"Modifier";
 			this->button_modifier->UseVisualStyleBackColor = false;
+			this->button_modifier->Click += gcnew System::EventHandler(this, &Form::button_modifier_Click);
 			// 
 			// button_supprimer
 			// 
@@ -407,6 +544,7 @@ namespace BackForm {
 			this->button_supprimer->TabIndex = 2;
 			this->button_supprimer->Text = L"Supprimer";
 			this->button_supprimer->UseVisualStyleBackColor = false;
+			this->button_supprimer->Click += gcnew System::EventHandler(this, &Form::button_supprimer_Click);
 			// 
 			// button_ajouter
 			// 
@@ -426,6 +564,7 @@ namespace BackForm {
 			// button_afficher
 			// 
 			this->button_afficher->BackColor = System::Drawing::Color::White;
+			this->button_afficher->Enabled = false;
 			this->button_afficher->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_afficher->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button_afficher->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -465,13 +604,14 @@ namespace BackForm {
 			this->tableLayoutPanel4->Controls->Add(this->textBox_date_embauche, 0, 3);
 			this->tableLayoutPanel4->Controls->Add(this->textBox_prenom, 1, 1);
 			this->tableLayoutPanel4->Controls->Add(this->label_prenom, 1, 0);
-			this->tableLayoutPanel4->Controls->Add(this->label_nom, 0, 0);
 			this->tableLayoutPanel4->Controls->Add(this->label_date_embauche, 0, 2);
 			this->tableLayoutPanel4->Controls->Add(this->label_poste, 1, 2);
 			this->tableLayoutPanel4->Controls->Add(this->label_adresse, 0, 4);
 			this->tableLayoutPanel4->Controls->Add(this->label_ville, 1, 4);
 			this->tableLayoutPanel4->Controls->Add(this->label_cp, 0, 6);
 			this->tableLayoutPanel4->Controls->Add(this->textBox_nom, 0, 1);
+			this->tableLayoutPanel4->Controls->Add(this->label_nom, 0, 0);
+			this->tableLayoutPanel4->Enabled = false;
 			this->tableLayoutPanel4->Location = System::Drawing::Point(224, 12);
 			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
 			this->tableLayoutPanel4->RowCount = 8;
@@ -484,7 +624,8 @@ namespace BackForm {
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
 			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
 			this->tableLayoutPanel4->Size = System::Drawing::Size(462, 318);
-			this->tableLayoutPanel4->TabIndex = 5;
+			this->tableLayoutPanel4->TabIndex = 0;
+			this->tableLayoutPanel4->Visible = false;
 			// 
 			// textBox_cp
 			// 
@@ -563,6 +704,7 @@ namespace BackForm {
 			this->textBox_prenom->Size = System::Drawing::Size(225, 32);
 			this->textBox_prenom->TabIndex = 9;
 			this->textBox_prenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_prenom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_prenom_TextChanged);
 			// 
 			// label_prenom
 			// 
@@ -576,19 +718,6 @@ namespace BackForm {
 			this->label_prenom->TabIndex = 1;
 			this->label_prenom->Text = L"Prénom";
 			this->label_prenom->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
-			// label_nom
-			// 
-			this->label_nom->AutoSize = true;
-			this->label_nom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label_nom->Location = System::Drawing::Point(3, 0);
-			this->label_nom->Name = L"label_nom";
-			this->label_nom->Size = System::Drawing::Size(225, 39);
-			this->label_nom->TabIndex = 0;
-			this->label_nom->Text = L"Nom";
-			this->label_nom->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// label_date_embauche
 			// 
@@ -667,6 +796,725 @@ namespace BackForm {
 			this->textBox_nom->Size = System::Drawing::Size(225, 32);
 			this->textBox_nom->TabIndex = 8;
 			this->textBox_nom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_nom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_nom_TextChanged);
+			// 
+			// label_nom
+			// 
+			this->label_nom->AutoSize = true;
+			this->label_nom->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_nom->Location = System::Drawing::Point(3, 0);
+			this->label_nom->Name = L"label_nom";
+			this->label_nom->Size = System::Drawing::Size(225, 39);
+			this->label_nom->TabIndex = 0;
+			this->label_nom->Text = L"Nom";
+			this->label_nom->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// tableLayoutPanel5
+			// 
+			this->tableLayoutPanel5->ColumnCount = 2;
+			this->tableLayoutPanel5->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel5->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel5->Controls->Add(this->textBox1_c_cpliv, 1, 9);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_villeliv, 0, 9);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_adrliv, 1, 7);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_cpfact, 0, 7);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_villefact, 1, 5);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_adrfact, 0, 5);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_nbcommande, 1, 3);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_date, 0, 3);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_prenom, 1, 1);
+			this->tableLayoutPanel5->Controls->Add(this->textBox_c_nom, 0, 1);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_nom, 0, 0);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_prenom, 1, 0);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_date, 0, 2);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_nbcommande, 1, 2);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_adrfact, 0, 4);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_villefact, 1, 4);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_cpfact, 0, 6);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_adrliv, 1, 6);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_villeliv, 0, 8);
+			this->tableLayoutPanel5->Controls->Add(this->label_c_cpliv, 1, 8);
+			this->tableLayoutPanel5->Enabled = false;
+			this->tableLayoutPanel5->Location = System::Drawing::Point(224, 12);
+			this->tableLayoutPanel5->Name = L"tableLayoutPanel5";
+			this->tableLayoutPanel5->RowCount = 10;
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel5->Size = System::Drawing::Size(462, 318);
+			this->tableLayoutPanel5->TabIndex = 5;
+			this->tableLayoutPanel5->Visible = false;
+			// 
+			// textBox1_c_cpliv
+			// 
+			this->textBox1_c_cpliv->BackColor = System::Drawing::Color::White;
+			this->textBox1_c_cpliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox1_c_cpliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1_c_cpliv->ForeColor = System::Drawing::Color::Black;
+			this->textBox1_c_cpliv->Location = System::Drawing::Point(234, 282);
+			this->textBox1_c_cpliv->Name = L"textBox1_c_cpliv";
+			this->textBox1_c_cpliv->Size = System::Drawing::Size(225, 29);
+			this->textBox1_c_cpliv->TabIndex = 20;
+			this->textBox1_c_cpliv->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_villeliv
+			// 
+			this->textBox_c_villeliv->BackColor = System::Drawing::Color::White;
+			this->textBox_c_villeliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_villeliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_villeliv->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_villeliv->Location = System::Drawing::Point(3, 282);
+			this->textBox_c_villeliv->Name = L"textBox_c_villeliv";
+			this->textBox_c_villeliv->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_villeliv->TabIndex = 19;
+			this->textBox_c_villeliv->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_adrliv
+			// 
+			this->textBox_c_adrliv->BackColor = System::Drawing::Color::White;
+			this->textBox_c_adrliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_adrliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_adrliv->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_adrliv->Location = System::Drawing::Point(234, 220);
+			this->textBox_c_adrliv->Name = L"textBox_c_adrliv";
+			this->textBox_c_adrliv->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_adrliv->TabIndex = 18;
+			this->textBox_c_adrliv->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_cpfact
+			// 
+			this->textBox_c_cpfact->BackColor = System::Drawing::Color::White;
+			this->textBox_c_cpfact->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_cpfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_cpfact->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_cpfact->Location = System::Drawing::Point(3, 220);
+			this->textBox_c_cpfact->Name = L"textBox_c_cpfact";
+			this->textBox_c_cpfact->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_cpfact->TabIndex = 17;
+			this->textBox_c_cpfact->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_villefact
+			// 
+			this->textBox_c_villefact->BackColor = System::Drawing::Color::White;
+			this->textBox_c_villefact->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_villefact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_villefact->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_villefact->Location = System::Drawing::Point(234, 158);
+			this->textBox_c_villefact->Name = L"textBox_c_villefact";
+			this->textBox_c_villefact->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_villefact->TabIndex = 16;
+			this->textBox_c_villefact->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_adrfact
+			// 
+			this->textBox_c_adrfact->BackColor = System::Drawing::Color::White;
+			this->textBox_c_adrfact->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_adrfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_adrfact->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_adrfact->Location = System::Drawing::Point(3, 158);
+			this->textBox_c_adrfact->Name = L"textBox_c_adrfact";
+			this->textBox_c_adrfact->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_adrfact->TabIndex = 15;
+			this->textBox_c_adrfact->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_nbcommande
+			// 
+			this->textBox_c_nbcommande->BackColor = System::Drawing::Color::White;
+			this->textBox_c_nbcommande->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_nbcommande->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_nbcommande->Location = System::Drawing::Point(234, 96);
+			this->textBox_c_nbcommande->Name = L"textBox_c_nbcommande";
+			this->textBox_c_nbcommande->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_nbcommande->TabIndex = 14;
+			this->textBox_c_nbcommande->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_date
+			// 
+			this->textBox_c_date->BackColor = System::Drawing::Color::White;
+			this->textBox_c_date->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_date->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_date->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_date->Location = System::Drawing::Point(3, 96);
+			this->textBox_c_date->Name = L"textBox_c_date";
+			this->textBox_c_date->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_date->TabIndex = 13;
+			this->textBox_c_date->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_prenom
+			// 
+			this->textBox_c_prenom->BackColor = System::Drawing::Color::White;
+			this->textBox_c_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_prenom->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_prenom->Location = System::Drawing::Point(234, 34);
+			this->textBox_c_prenom->Name = L"textBox_c_prenom";
+			this->textBox_c_prenom->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_prenom->TabIndex = 12;
+			this->textBox_c_prenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_c_nom
+			// 
+			this->textBox_c_nom->BackColor = System::Drawing::Color::White;
+			this->textBox_c_nom->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_c_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_c_nom->ForeColor = System::Drawing::Color::Black;
+			this->textBox_c_nom->Location = System::Drawing::Point(3, 34);
+			this->textBox_c_nom->Name = L"textBox_c_nom";
+			this->textBox_c_nom->Size = System::Drawing::Size(225, 29);
+			this->textBox_c_nom->TabIndex = 11;
+			this->textBox_c_nom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label_c_nom
+			// 
+			this->label_c_nom->AutoSize = true;
+			this->label_c_nom->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_nom->Location = System::Drawing::Point(3, 0);
+			this->label_c_nom->Name = L"label_c_nom";
+			this->label_c_nom->Size = System::Drawing::Size(225, 31);
+			this->label_c_nom->TabIndex = 1;
+			this->label_c_nom->Text = L"Nom";
+			this->label_c_nom->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_prenom
+			// 
+			this->label_c_prenom->AutoSize = true;
+			this->label_c_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_prenom->Location = System::Drawing::Point(234, 0);
+			this->label_c_prenom->Name = L"label_c_prenom";
+			this->label_c_prenom->Size = System::Drawing::Size(225, 31);
+			this->label_c_prenom->TabIndex = 2;
+			this->label_c_prenom->Text = L"Prénom";
+			this->label_c_prenom->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_date
+			// 
+			this->label_c_date->AutoSize = true;
+			this->label_c_date->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_date->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_date->Location = System::Drawing::Point(3, 62);
+			this->label_c_date->Name = L"label_c_date";
+			this->label_c_date->Size = System::Drawing::Size(225, 31);
+			this->label_c_date->TabIndex = 3;
+			this->label_c_date->Text = L"Date de naissance";
+			this->label_c_date->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_nbcommande
+			// 
+			this->label_c_nbcommande->AutoSize = true;
+			this->label_c_nbcommande->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_nbcommande->Location = System::Drawing::Point(234, 62);
+			this->label_c_nbcommande->Name = L"label_c_nbcommande";
+			this->label_c_nbcommande->Size = System::Drawing::Size(225, 31);
+			this->label_c_nbcommande->TabIndex = 4;
+			this->label_c_nbcommande->Text = L"Nombre de commandes";
+			this->label_c_nbcommande->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_adrfact
+			// 
+			this->label_c_adrfact->AutoSize = true;
+			this->label_c_adrfact->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_adrfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_adrfact->Location = System::Drawing::Point(3, 124);
+			this->label_c_adrfact->Name = L"label_c_adrfact";
+			this->label_c_adrfact->Size = System::Drawing::Size(225, 31);
+			this->label_c_adrfact->TabIndex = 5;
+			this->label_c_adrfact->Text = L"Adresse de facturation";
+			this->label_c_adrfact->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_villefact
+			// 
+			this->label_c_villefact->AutoSize = true;
+			this->label_c_villefact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_villefact->Location = System::Drawing::Point(234, 124);
+			this->label_c_villefact->Name = L"label_c_villefact";
+			this->label_c_villefact->Size = System::Drawing::Size(48, 25);
+			this->label_c_villefact->TabIndex = 6;
+			this->label_c_villefact->Text = L"Ville";
+			this->label_c_villefact->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_cpfact
+			// 
+			this->label_c_cpfact->AutoSize = true;
+			this->label_c_cpfact->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_cpfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_cpfact->Location = System::Drawing::Point(3, 186);
+			this->label_c_cpfact->Name = L"label_c_cpfact";
+			this->label_c_cpfact->Size = System::Drawing::Size(225, 31);
+			this->label_c_cpfact->TabIndex = 7;
+			this->label_c_cpfact->Text = L"Code Postal";
+			this->label_c_cpfact->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_adrliv
+			// 
+			this->label_c_adrliv->AutoSize = true;
+			this->label_c_adrliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_adrliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_adrliv->Location = System::Drawing::Point(234, 186);
+			this->label_c_adrliv->Name = L"label_c_adrliv";
+			this->label_c_adrliv->Size = System::Drawing::Size(225, 31);
+			this->label_c_adrliv->TabIndex = 8;
+			this->label_c_adrliv->Text = L"Adresse de livraison";
+			this->label_c_adrliv->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_villeliv
+			// 
+			this->label_c_villeliv->AutoSize = true;
+			this->label_c_villeliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_villeliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_villeliv->Location = System::Drawing::Point(3, 248);
+			this->label_c_villeliv->Name = L"label_c_villeliv";
+			this->label_c_villeliv->Size = System::Drawing::Size(225, 31);
+			this->label_c_villeliv->TabIndex = 9;
+			this->label_c_villeliv->Text = L"Ville";
+			this->label_c_villeliv->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_c_cpliv
+			// 
+			this->label_c_cpliv->AutoSize = true;
+			this->label_c_cpliv->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_c_cpliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_c_cpliv->Location = System::Drawing::Point(234, 248);
+			this->label_c_cpliv->Name = L"label_c_cpliv";
+			this->label_c_cpliv->Size = System::Drawing::Size(225, 31);
+			this->label_c_cpliv->TabIndex = 10;
+			this->label_c_cpliv->Text = L"Code Postal";
+			this->label_c_cpliv->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// tableLayoutPanel7
+			// 
+			this->tableLayoutPanel7->ColumnCount = 2;
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel7->Controls->Add(this->textBox_p_tva, 0, 5);
+			this->tableLayoutPanel7->Controls->Add(this->label_p_desi, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->label_p_pht, 1, 0);
+			this->tableLayoutPanel7->Controls->Add(this->label_p_qte, 0, 2);
+			this->tableLayoutPanel7->Controls->Add(this->label_p_seuil, 1, 2);
+			this->tableLayoutPanel7->Controls->Add(this->label_p_tva, 0, 4);
+			this->tableLayoutPanel7->Controls->Add(this->textBox_p_desi, 0, 1);
+			this->tableLayoutPanel7->Controls->Add(this->textBox_p_pht, 1, 1);
+			this->tableLayoutPanel7->Controls->Add(this->textBox_p_qte, 0, 3);
+			this->tableLayoutPanel7->Controls->Add(this->textBox_p_seuil, 1, 3);
+			this->tableLayoutPanel7->Enabled = false;
+			this->tableLayoutPanel7->Location = System::Drawing::Point(224, 12);
+			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
+			this->tableLayoutPanel7->RowCount = 6;
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 16.66667F)));
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
+			this->tableLayoutPanel7->Size = System::Drawing::Size(462, 318);
+			this->tableLayoutPanel7->TabIndex = 6;
+			this->tableLayoutPanel7->Visible = false;
+			// 
+			// textBox_p_tva
+			// 
+			this->textBox_p_tva->BackColor = System::Drawing::Color::White;
+			this->textBox_p_tva->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_p_tva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_p_tva->ForeColor = System::Drawing::Color::Black;
+			this->textBox_p_tva->Location = System::Drawing::Point(3, 263);
+			this->textBox_p_tva->Name = L"textBox_p_tva";
+			this->textBox_p_tva->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_tva->TabIndex = 17;
+			this->textBox_p_tva->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label_p_desi
+			// 
+			this->label_p_desi->AutoSize = true;
+			this->label_p_desi->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_p_desi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_p_desi->Location = System::Drawing::Point(3, 0);
+			this->label_p_desi->Name = L"label_p_desi";
+			this->label_p_desi->Size = System::Drawing::Size(225, 52);
+			this->label_p_desi->TabIndex = 2;
+			this->label_p_desi->Text = L"Désignation";
+			this->label_p_desi->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_p_pht
+			// 
+			this->label_p_pht->AutoSize = true;
+			this->label_p_pht->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_p_pht->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_p_pht->Location = System::Drawing::Point(234, 0);
+			this->label_p_pht->Name = L"label_p_pht";
+			this->label_p_pht->Size = System::Drawing::Size(225, 52);
+			this->label_p_pht->TabIndex = 3;
+			this->label_p_pht->Text = L"Prix Hors Taxes";
+			this->label_p_pht->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_p_qte
+			// 
+			this->label_p_qte->AutoSize = true;
+			this->label_p_qte->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_p_qte->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_p_qte->Location = System::Drawing::Point(3, 104);
+			this->label_p_qte->Name = L"label_p_qte";
+			this->label_p_qte->Size = System::Drawing::Size(225, 52);
+			this->label_p_qte->TabIndex = 4;
+			this->label_p_qte->Text = L"Quantité dans le stock";
+			this->label_p_qte->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_p_seuil
+			// 
+			this->label_p_seuil->AutoSize = true;
+			this->label_p_seuil->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_p_seuil->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_p_seuil->Location = System::Drawing::Point(234, 104);
+			this->label_p_seuil->Name = L"label_p_seuil";
+			this->label_p_seuil->Size = System::Drawing::Size(225, 52);
+			this->label_p_seuil->TabIndex = 5;
+			this->label_p_seuil->Text = L"Seuil de réapprovisionnement";
+			this->label_p_seuil->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_p_tva
+			// 
+			this->label_p_tva->AutoSize = true;
+			this->label_p_tva->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_p_tva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_p_tva->Location = System::Drawing::Point(3, 208);
+			this->label_p_tva->Name = L"label_p_tva";
+			this->label_p_tva->Size = System::Drawing::Size(225, 52);
+			this->label_p_tva->TabIndex = 6;
+			this->label_p_tva->Text = L"Taux de TVA";
+			this->label_p_tva->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// textBox_p_desi
+			// 
+			this->textBox_p_desi->BackColor = System::Drawing::Color::White;
+			this->textBox_p_desi->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_p_desi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_p_desi->ForeColor = System::Drawing::Color::Black;
+			this->textBox_p_desi->Location = System::Drawing::Point(3, 55);
+			this->textBox_p_desi->Name = L"textBox_p_desi";
+			this->textBox_p_desi->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_desi->TabIndex = 14;
+			this->textBox_p_desi->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_p_pht
+			// 
+			this->textBox_p_pht->BackColor = System::Drawing::Color::White;
+			this->textBox_p_pht->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_p_pht->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_p_pht->ForeColor = System::Drawing::Color::Black;
+			this->textBox_p_pht->Location = System::Drawing::Point(234, 55);
+			this->textBox_p_pht->Name = L"textBox_p_pht";
+			this->textBox_p_pht->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_pht->TabIndex = 13;
+			this->textBox_p_pht->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_p_qte
+			// 
+			this->textBox_p_qte->BackColor = System::Drawing::Color::White;
+			this->textBox_p_qte->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_p_qte->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_p_qte->ForeColor = System::Drawing::Color::Black;
+			this->textBox_p_qte->Location = System::Drawing::Point(3, 159);
+			this->textBox_p_qte->Name = L"textBox_p_qte";
+			this->textBox_p_qte->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_qte->TabIndex = 15;
+			this->textBox_p_qte->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_p_seuil
+			// 
+			this->textBox_p_seuil->BackColor = System::Drawing::Color::White;
+			this->textBox_p_seuil->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_p_seuil->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_p_seuil->ForeColor = System::Drawing::Color::Black;
+			this->textBox_p_seuil->Location = System::Drawing::Point(234, 159);
+			this->textBox_p_seuil->Name = L"textBox_p_seuil";
+			this->textBox_p_seuil->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_seuil->TabIndex = 16;
+			this->textBox_p_seuil->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// tableLayoutPanel6
+			// 
+			this->tableLayoutPanel6->ColumnCount = 2;
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_produits, 0, 7);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_qtes, 0, 7);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_ref, 0, 0);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_valide, 1, 0);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_envoi, 0, 2);
+			this->tableLayoutPanel6->Controls->Add(this->label_paiment, 1, 2);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_moyen, 0, 4);
+			this->tableLayoutPanel6->Controls->Add(this->label_total, 1, 4);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_produits, 0, 6);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_qtes, 1, 6);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_ref, 0, 1);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_valide, 1, 1);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_paiement, 1, 3);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_envoi, 0, 3);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_moyen, 0, 5);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_total, 1, 5);
+			this->tableLayoutPanel6->Enabled = false;
+			this->tableLayoutPanel6->Location = System::Drawing::Point(224, 12);
+			this->tableLayoutPanel6->Name = L"tableLayoutPanel6";
+			this->tableLayoutPanel6->RowCount = 8;
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->Size = System::Drawing::Size(462, 318);
+			this->tableLayoutPanel6->TabIndex = 7;
+			this->tableLayoutPanel6->Visible = false;
+			// 
+			// textBox_d_produits
+			// 
+			this->textBox_d_produits->BackColor = System::Drawing::Color::White;
+			this->textBox_d_produits->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_produits->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_produits->Location = System::Drawing::Point(3, 276);
+			this->textBox_d_produits->Name = L"textBox_d_produits";
+			this->textBox_d_produits->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_produits->TabIndex = 22;
+			this->textBox_d_produits->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_qtes
+			// 
+			this->textBox_d_qtes->BackColor = System::Drawing::Color::White;
+			this->textBox_d_qtes->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_qtes->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_qtes->Location = System::Drawing::Point(234, 276);
+			this->textBox_d_qtes->Name = L"textBox_d_qtes";
+			this->textBox_d_qtes->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_qtes->TabIndex = 21;
+			this->textBox_d_qtes->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label_d_ref
+			// 
+			this->label_d_ref->AutoSize = true;
+			this->label_d_ref->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_ref->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_ref->Location = System::Drawing::Point(3, 0);
+			this->label_d_ref->Name = L"label_d_ref";
+			this->label_d_ref->Size = System::Drawing::Size(225, 39);
+			this->label_d_ref->TabIndex = 4;
+			this->label_d_ref->Text = L"reference";
+			this->label_d_ref->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_d_valide
+			// 
+			this->label_d_valide->AutoSize = true;
+			this->label_d_valide->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_valide->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_valide->Location = System::Drawing::Point(234, 0);
+			this->label_d_valide->Name = L"label_d_valide";
+			this->label_d_valide->Size = System::Drawing::Size(225, 39);
+			this->label_d_valide->TabIndex = 5;
+			this->label_d_valide->Text = L"paiment valide";
+			this->label_d_valide->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_d_envoi
+			// 
+			this->label_d_envoi->AutoSize = true;
+			this->label_d_envoi->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_envoi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_envoi->Location = System::Drawing::Point(3, 78);
+			this->label_d_envoi->Name = L"label_d_envoi";
+			this->label_d_envoi->Size = System::Drawing::Size(225, 39);
+			this->label_d_envoi->TabIndex = 6;
+			this->label_d_envoi->Text = L"date d\'envoi";
+			this->label_d_envoi->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_paiment
+			// 
+			this->label_paiment->AutoSize = true;
+			this->label_paiment->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_paiment->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_paiment->Location = System::Drawing::Point(234, 78);
+			this->label_paiment->Name = L"label_paiment";
+			this->label_paiment->Size = System::Drawing::Size(225, 39);
+			this->label_paiment->TabIndex = 7;
+			this->label_paiment->Text = L"date de paiement";
+			this->label_paiment->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_d_moyen
+			// 
+			this->label_d_moyen->AutoSize = true;
+			this->label_d_moyen->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_moyen->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_moyen->Location = System::Drawing::Point(3, 156);
+			this->label_d_moyen->Name = L"label_d_moyen";
+			this->label_d_moyen->Size = System::Drawing::Size(225, 39);
+			this->label_d_moyen->TabIndex = 8;
+			this->label_d_moyen->Text = L"moyen de paiement";
+			this->label_d_moyen->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_total
+			// 
+			this->label_total->AutoSize = true;
+			this->label_total->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_total->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_total->Location = System::Drawing::Point(234, 156);
+			this->label_total->Name = L"label_total";
+			this->label_total->Size = System::Drawing::Size(225, 39);
+			this->label_total->TabIndex = 9;
+			this->label_total->Text = L"nombre totale d\'articles";
+			this->label_total->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_d_produits
+			// 
+			this->label_d_produits->AutoSize = true;
+			this->label_d_produits->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_produits->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_produits->Location = System::Drawing::Point(3, 234);
+			this->label_d_produits->Name = L"label_d_produits";
+			this->label_d_produits->Size = System::Drawing::Size(225, 39);
+			this->label_d_produits->TabIndex = 10;
+			this->label_d_produits->Text = L"Produits";
+			this->label_d_produits->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// label_d_qtes
+			// 
+			this->label_d_qtes->AutoSize = true;
+			this->label_d_qtes->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label_d_qtes->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_d_qtes->Location = System::Drawing::Point(234, 234);
+			this->label_d_qtes->Name = L"label_d_qtes";
+			this->label_d_qtes->Size = System::Drawing::Size(225, 39);
+			this->label_d_qtes->TabIndex = 11;
+			this->label_d_qtes->Text = L"Quantités";
+			this->label_d_qtes->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// textBox_d_ref
+			// 
+			this->textBox_d_ref->BackColor = System::Drawing::Color::White;
+			this->textBox_d_ref->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_ref->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_ref->Location = System::Drawing::Point(3, 42);
+			this->textBox_d_ref->Name = L"textBox_d_ref";
+			this->textBox_d_ref->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_ref->TabIndex = 15;
+			this->textBox_d_ref->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_valide
+			// 
+			this->textBox_d_valide->BackColor = System::Drawing::Color::White;
+			this->textBox_d_valide->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_valide->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_valide->Location = System::Drawing::Point(234, 42);
+			this->textBox_d_valide->Name = L"textBox_d_valide";
+			this->textBox_d_valide->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_valide->TabIndex = 16;
+			this->textBox_d_valide->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_paiement
+			// 
+			this->textBox_d_paiement->BackColor = System::Drawing::Color::White;
+			this->textBox_d_paiement->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_paiement->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_paiement->Location = System::Drawing::Point(234, 120);
+			this->textBox_d_paiement->Name = L"textBox_d_paiement";
+			this->textBox_d_paiement->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_paiement->TabIndex = 17;
+			this->textBox_d_paiement->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_envoi
+			// 
+			this->textBox_d_envoi->BackColor = System::Drawing::Color::White;
+			this->textBox_d_envoi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_envoi->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_envoi->Location = System::Drawing::Point(3, 120);
+			this->textBox_d_envoi->Name = L"textBox_d_envoi";
+			this->textBox_d_envoi->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_envoi->TabIndex = 18;
+			this->textBox_d_envoi->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_moyen
+			// 
+			this->textBox_d_moyen->BackColor = System::Drawing::Color::White;
+			this->textBox_d_moyen->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_moyen->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_moyen->Location = System::Drawing::Point(3, 198);
+			this->textBox_d_moyen->Name = L"textBox_d_moyen";
+			this->textBox_d_moyen->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_moyen->TabIndex = 19;
+			this->textBox_d_moyen->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_total
+			// 
+			this->textBox_d_total->BackColor = System::Drawing::Color::White;
+			this->textBox_d_total->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_total->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_total->Location = System::Drawing::Point(234, 198);
+			this->textBox_d_total->Name = L"textBox_d_total";
+			this->textBox_d_total->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_total->TabIndex = 20;
+			this->textBox_d_total->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// Form
 			// 
@@ -674,6 +1522,9 @@ namespace BackForm {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Gray;
 			this->ClientSize = System::Drawing::Size(1421, 640);
+			this->Controls->Add(this->tableLayoutPanel6);
+			this->Controls->Add(this->tableLayoutPanel7);
+			this->Controls->Add(this->tableLayoutPanel5);
 			this->Controls->Add(this->tableLayoutPanel4);
 			this->Controls->Add(this->button_afficher);
 			this->Controls->Add(this->tableLayoutPanel3);
@@ -690,6 +1541,12 @@ namespace BackForm {
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->tableLayoutPanel4->ResumeLayout(false);
 			this->tableLayoutPanel4->PerformLayout();
+			this->tableLayoutPanel5->ResumeLayout(false);
+			this->tableLayoutPanel5->PerformLayout();
+			this->tableLayoutPanel7->ResumeLayout(false);
+			this->tableLayoutPanel7->PerformLayout();
+			this->tableLayoutPanel6->ResumeLayout(false);
+			this->tableLayoutPanel6->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -698,6 +1555,57 @@ namespace BackForm {
 	{
 		
 	}
+	private: void activatebuttons() 
+	{
+		this->tableLayoutPanel2->Enabled = true;
+		this->tableLayoutPanel3->Enabled = true;
+		this->button_afficher->Enabled = true;
+	}
+	private: void showData(int index) {
+
+		if(this->tableLayoutPanel4->Visible == true)
+		{
+			this->textBox_nom->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
+			this->textBox_prenom->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
+			this->textBox_date_embauche->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
+			this->textBox_poste->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
+			this->textBox_adresse->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
+			this->textBox_ville->Text = this->dataGridView1->Rows[index]->Cells[7]->Value->ToString();
+			this->textBox_cp->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
+		}
+		else if (this->tableLayoutPanel5->Visible == true)
+		{
+			this->textBox_c_nom->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
+			this->textBox_c_prenom->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
+			this->textBox_c_date->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
+			this->textBox_c_nbcommande->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
+			this->textBox_c_adrfact->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
+			this->textBox_c_villefact->Text = this->dataGridView1->Rows[index]->Cells[7]->Value->ToString();
+			this->textBox_c_cpfact->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
+			this->textBox_c_adrliv->Text = this->dataGridView1->Rows[index]->Cells[10]->Value->ToString();
+			this->textBox_c_villeliv->Text = this->dataGridView1->Rows[index]->Cells[11]->Value->ToString();
+			this->textBox1_c_cpliv->Text = this->dataGridView1->Rows[index]->Cells[12]->Value->ToString();
+		}
+		else if (this->tableLayoutPanel6->Visible == true)
+		{
+			this->textBox_d_ref->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
+			this->textBox_d_valide->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
+			this->textBox_d_envoi->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
+			this->textBox_d_paiement->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
+			this->textBox_d_moyen->Text = this->dataGridView1->Rows[index]->Cells[5]->Value->ToString();
+			this->textBox_d_total->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
+			this->textBox_d_produits->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
+			this->textBox_d_qtes->Text = this->dataGridView1->Rows[index]->Cells[9]->Value->ToString();
+		}
+		else if (this->tableLayoutPanel7->Visible == true) 
+		{
+			this->textBox_p_desi->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
+			this->textBox_p_pht->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
+			this->textBox_p_qte->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
+			this->textBox_p_seuil->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
+			this->textBox_p_tva->Text = this->dataGridView1->Rows[index]->Cells[5]->Value->ToString();
+		}
+	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		Employe* TableEmploye = new Employe;
@@ -705,7 +1613,20 @@ namespace BackForm {
 
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = "Employe";
+		this->dataGridView1->Columns[0]->Visible = false;
+		this->dataGridView1->Columns[5]->Visible = false;
 		this->dataGridView1->Rows[0]->Selected = true;
+
+		activatebuttons();
+
+		this->tableLayoutPanel4->Visible = true;
+		this->tableLayoutPanel4->Enabled = true;
+		this->tableLayoutPanel5->Visible = false;
+		this->tableLayoutPanel5->Enabled = false;
+		this->tableLayoutPanel6->Visible = false;
+		this->tableLayoutPanel6->Enabled = false;
+		this->tableLayoutPanel7->Visible = false;
+		this->tableLayoutPanel7->Enabled = false;
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -714,24 +1635,64 @@ namespace BackForm {
 
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = "Client";
+		this->dataGridView1->Columns[0]->Visible = false;
+		this->dataGridView1->Columns[5]->Visible = false;
+		this->dataGridView1->Columns[9]->Visible = false;
+		this->dataGridView1->Rows[0]->Selected = true;
+
+		activatebuttons();
+
+		this->tableLayoutPanel4->Visible = false;
+		this->tableLayoutPanel4->Enabled = false;
+		this->tableLayoutPanel5->Visible = true;
+		this->tableLayoutPanel5->Enabled = true;
+		this->tableLayoutPanel6->Visible = false;
+		this->tableLayoutPanel6->Enabled = false;
+		this->tableLayoutPanel7->Visible = false;
+		this->tableLayoutPanel7->Enabled = false;
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		String^ NT = "Commande";
-		Table* TableEmploye = new Table;
-		DataSet^ DS = TableEmploye->afficher(NT);
+		Commande* TableCommande = new Commande;
+		DataSet^ DS = TableCommande->afficher();
+
+		activatebuttons();
 
 		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = NT;
+		this->dataGridView1->DataMember = "Commande";
+		this->dataGridView1->Columns[0]->Visible = false;
+		this->dataGridView1->Columns[7]->Visible = false;
+
+		this->tableLayoutPanel4->Visible = false;
+		this->tableLayoutPanel4->Enabled = false;
+		this->tableLayoutPanel5->Visible = false;
+		this->tableLayoutPanel5->Enabled = false;
+		this->tableLayoutPanel6->Visible = true;
+		this->tableLayoutPanel6->Enabled = true;
+		this->tableLayoutPanel7->Visible = false;
+		this->tableLayoutPanel7->Enabled = false;
+
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		String^ NT = "Produit";
-		Table* TableEmploye = new Table;
-		DataSet^ DS = TableEmploye->afficher(NT);
+		Produit* TableProduit = new Produit;
+		DataSet^ DS = TableProduit->afficher(NT);
+
+		activatebuttons();
 
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = NT;
+		this->dataGridView1->Columns[0]->Visible = false;
+
+		this->tableLayoutPanel4->Visible = false;
+		this->tableLayoutPanel4->Enabled = false;
+		this->tableLayoutPanel5->Visible = false;
+		this->tableLayoutPanel5->Enabled = false;
+		this->tableLayoutPanel6->Visible = false;
+		this->tableLayoutPanel6->Enabled = false;
+		this->tableLayoutPanel7->Visible = true;
+		this->tableLayoutPanel7->Enabled = true;
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -739,20 +1700,21 @@ namespace BackForm {
 		Table* TableEmploye = new Table;
 		DataSet^ DS = TableEmploye->afficher(NT);
 
+		activatebuttons();
+
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = NT;
+
+		this->tableLayoutPanel4->Visible = false;
+		this->tableLayoutPanel4->Enabled = false;
+		this->tableLayoutPanel5->Visible = false;
+		this->tableLayoutPanel5->Enabled = false;
 	}
 	private: System::Void button__first_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		this->dataGridView1->Rows[0]->Selected = true;
 
-		this->textBox_nom->Text = this->dataGridView1->Rows[0]->Cells[0]->Value->ToString();
-		this->textBox_prenom->Text = this->dataGridView1->Rows[0]->Cells[1]->Value->ToString();
-		this->textBox_date_embauche->Text = this->dataGridView1->Rows[0]->Cells[2]->Value->ToString();
-		this->textBox_poste->Text = this->dataGridView1->Rows[0]->Cells[3]->Value->ToString();
-		this->textBox_adresse->Text = this->dataGridView1->Rows[0]->Cells[4]->Value->ToString();
-		this->textBox_ville->Text = this->dataGridView1->Rows[0]->Cells[5]->Value->ToString();
-		this->textBox_cp->Text = this->dataGridView1->Rows[0]->Cells[6]->Value->ToString();
+		showData(0);
 	}
 	private: System::Void button_previous_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -760,7 +1722,6 @@ namespace BackForm {
 			if (this->dataGridView1->Rows[i]->Selected == true) {
 				Index = i;
 			}
-
 		}
 
 		if (this->dataGridView1->Rows[0]->Selected == true) {
@@ -772,17 +1733,10 @@ namespace BackForm {
 			this->dataGridView1->Rows[Index]->Selected = false;
 		}
 
-		this->dataGridView1->CurrentRow->Selected = false;
+
 		this->dataGridView1->Rows[Index - 1]->Selected = true;
 
-		this->textBox_nom->Text = this->dataGridView1->Rows[Index - 1]->Cells[0]->Value->ToString();
-		this->textBox_prenom->Text = this->dataGridView1->Rows[Index - 1]->Cells[1]->Value->ToString();
-		this->textBox_date_embauche->Text = this->dataGridView1->Rows[Index - 1]->Cells[2]->Value->ToString();
-		this->textBox_poste->Text = this->dataGridView1->Rows[Index - 1]->Cells[3]->Value->ToString();
-		this->textBox_adresse->Text = this->dataGridView1->Rows[Index - 1]->Cells[4]->Value->ToString();
-		this->textBox_ville->Text = this->dataGridView1->Rows[Index - 1]->Cells[5]->Value->ToString();
-		this->textBox_cp->Text = this->dataGridView1->Rows[Index - 1]->Cells[6]->Value->ToString();
-
+		showData(Index - 1);
 	}
 	private: System::Void button_next_Click(System::Object^ sender, System::EventArgs^ e)
 	{
@@ -790,7 +1744,6 @@ namespace BackForm {
 			if (this->dataGridView1->Rows[i]->Selected == true) {
 				Index = i;
 			}
-
 		}
 
 		if (this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Selected == true) {
@@ -802,43 +1755,146 @@ namespace BackForm {
 			this->dataGridView1->Rows[Index]->Selected = false;
 		}
 
-		this->dataGridView1->CurrentRow->Selected = false;
 		this->dataGridView1->Rows[Index + 1]->Selected = true;
 
-		this->textBox_nom->Text = this->dataGridView1->Rows[Index+1]->Cells[0]->Value->ToString();
-		this->textBox_prenom->Text = this->dataGridView1->Rows[Index + 1]->Cells[1]->Value->ToString();
-		this->textBox_date_embauche->Text = this->dataGridView1->Rows[Index + 1]->Cells[2]->Value->ToString();
-		this->textBox_poste->Text = this->dataGridView1->Rows[Index + 1]->Cells[3]->Value->ToString();
-		this->textBox_adresse->Text = this->dataGridView1->Rows[Index + 1]->Cells[4]->Value->ToString();
-		this->textBox_ville->Text = this->dataGridView1->Rows[Index + 1]->Cells[5]->Value->ToString();
-		this->textBox_cp->Text = this->dataGridView1->Rows[Index + 1]->Cells[6]->Value->ToString();
+		showData(Index + 1);
 	}
 
 	private: System::Void button_last_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		this->dataGridView1->Rows[(this->dataGridView1->RowCount)-2]->Selected = true;
 
-		this->textBox_nom->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[0]->Value->ToString();
-		this->textBox_prenom->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[1]->Value->ToString();
-		this->textBox_date_embauche->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[2]->Value->ToString();
-		this->textBox_poste->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[3]->Value->ToString();
-		this->textBox_adresse->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[4]->Value->ToString();
-		this->textBox_ville->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[5]->Value->ToString();
-		this->textBox_cp->Text = this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Cells[6]->Value->ToString();
+		showData((this->dataGridView1->RowCount) - 2);
 	}
 	private: System::Void button_afficher_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		Employe* TableEmploye = new Employe;
-		DataSet^ DS = TableEmploye->afficher();
+		System::Data::DataSet^ DS;
+
+		if (this->tableLayoutPanel4->Visible == true) {
+			
+			Employe* TableEmploye = new Employe;
+			DS = TableEmploye->afficher();
+		}
+		else if (this->tableLayoutPanel5->Visible == true) {
+
+			Client* TableClient = new Client;
+			DS = TableClient->afficher();
+		}
+		else if (this->tableLayoutPanel6->Visible == true) {
+
+			Commande* TableCommande = new Commande;
+			DS = TableCommande->afficher();
+		}
+		else if (this->tableLayoutPanel7->Visible == true) {
+
+			String^ NT = "Produit";
+			Produit* TableProduit = new Produit;
+			DS = TableProduit->afficher(NT);
+		}
+
 
 		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = "Employe";
 		this->dataGridView1->Rows[0]->Selected = true;
+		showData(0);
 	}
 	private: System::Void button_ajouter_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		Employe* emp = new Employe;
-		emp->ajouter(this->textBox_nom->Text,this->textBox_prenom->Text,this->textBox_date_embauche->Text,this->textBox_poste->Text,this->textBox_adresse->Text,this->textBox_ville->Text,this->textBox_cp->Text);
+		if (this->tableLayoutPanel4->Visible == true) {
+			
+			Employe* emp = new Employe;
+			emp->ajouter(this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
+		}
+		else if (this->tableLayoutPanel5->Visible == true) {
+
+			Client* clt = new Client;
+			clt->ajouter(this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
+		}
+		else if (this->tableLayoutPanel6->Visible == true) {
+
+			Commande* cmd = new Commande;
+			cmd->ajouter(this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
+		}
+		else if (this->tableLayoutPanel7->Visible == true) {
+
+			Produit* pdt = new Produit;
+			pdt->ajouter(this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
+		}
+	}
+	private: System::Void button_modifier_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
+			if (this->dataGridView1->Rows[i]->Selected == true) {
+				Index = i;
+			}
+		}
+
+		if (this->tableLayoutPanel4->Visible == true) {
+
+			Employe* emp = new Employe;
+			emp->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
+		}
+		else if (this->tableLayoutPanel5->Visible == true) {
+
+			Client* clt = new Client;
+			clt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString(), this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
+ 		}
+		else if (this->tableLayoutPanel6->Visible == true) {
+
+			Commande* cmd = new Commande;
+			cmd->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
+		}
+		else if (this->tableLayoutPanel7->Visible == true) {
+
+			Produit* pdt = new Produit;
+			pdt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
+		}
+	}
+	private: System::Void button_supprimer_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
+			if (this->dataGridView1->Rows[i]->Selected == true) {
+				Index = i;
+			}
+		}
+
+		if (this->tableLayoutPanel4->Visible == true) {
+
+			Employe* emp = new Employe;
+			emp->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString());
+		}
+		else if (this->tableLayoutPanel5->Visible == true) {
+			
+			Client* clt = new Client;
+			clt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString());
+		}
+		else if (this->tableLayoutPanel6->Visible == true) {
+
+			Commande* cmd = new Commande;
+			cmd->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
+		}
+		else if (this->tableLayoutPanel7->Visible == true) {
+
+			Produit* pdt = new Produit;
+			pdt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
+		}
+	}
+	private: System::Void textBox_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
+			if (this->textBox_nom->Text == this->dataGridView1->Rows[i]->Cells[1]->Value->ToString()) {
+				this->dataGridView1->Rows[i]->Selected = true;
+				showData(i);
+			}
+		}
+	}
+	private: System::Void textBox_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
+			if (this->textBox_prenom->Text == this->dataGridView1->Rows[i]->Cells[2]->Value->ToString()) {
+				this->dataGridView1->Rows[i]->Selected = true;
+				showData(i);
+			}
+		}
 	}
 };
 }

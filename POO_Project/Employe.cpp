@@ -55,3 +55,58 @@ void Employe::ajouter(System::String^ nom, System::String^ prenom, System::Strin
 		System::Windows::Forms::MessageBox::Show(ex->Message);
 	}
 }
+
+void Employe::modifier(System::String^ ID, System::String^ nom, System::String^ prenom, System::String^ date, System::String^ poste, System::String^ adresse, System::String^ ville, System::String^ cp) {
+	
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	System::String^ querystring = File::ReadAllText("modifierEmployeScript.sql");
+
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+
+	command->Parameters->AddWithValue("@ID", System::Convert::ToInt32(ID));
+
+	command->Parameters->AddWithValue("@nom", nom);
+	command->Parameters->AddWithValue("@prenom", prenom);
+	command->Parameters->AddWithValue("@date_embauche", System::Convert::ToDateTime(date));
+	command->Parameters->AddWithValue("@poste", poste);
+	
+	command->Parameters->AddWithValue("@adresse", adresse);
+	command->Parameters->AddWithValue("@ville", ville);
+	command->Parameters->AddWithValue("@cp", System::Convert::ToInt32(cp));
+
+	try
+	{
+		connection->Open();
+		command->ExecuteNonQuery();
+		connection->Close();
+	}
+	catch (System::Exception^ ex)
+	{
+		System::Windows::Forms::MessageBox::Show(ex->Message);
+	}
+}
+
+void Employe::supprimer(System::String^ ID, System::String^ ID_Adresse) {
+	
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	System::String^ querystring = File::ReadAllText("supprimerEmployeScript.sql");
+
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+
+	command->Parameters->AddWithValue("@ID", System::Convert::ToInt32(ID));
+	command->Parameters->AddWithValue("@ID_Adresse", System::Convert::ToInt32(ID_Adresse));
+
+
+	try
+	{
+		connection->Open();
+		command->ExecuteNonQuery();
+		connection->Close();
+	}
+	catch (System::Exception^ ex)
+	{
+		System::Windows::Forms::MessageBox::Show(ex->Message);
+	}
+}

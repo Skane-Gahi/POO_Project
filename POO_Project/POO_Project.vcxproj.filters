@@ -85,5 +85,41 @@
     <None Include="ajouterEmployeScript.sql">
       <Filter>Fichiers de ressources</Filter>
     </None>
+    <None Include="modifierEmployeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="supprimerEmployeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="ajouterClientScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="modifierClientScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="supprimerClientScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="ajouterProduitScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="modifierProduitScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="supprimerProduitScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="afficherCommandeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="ajouterCommandeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="modifierCommandeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="supprimerCommandeScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
 </Project>

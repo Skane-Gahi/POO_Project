@@ -27,3 +27,95 @@ System::Data::DataSet^ Client::afficher()
 		return dataset;
 	}
 }
+
+void Client::ajouter(System::String^ nom, System::String^ prenom, System::String^ date_naissance, System::String^ nombre_commandes, System::String^ adrfact, System::String^ villefact, System::String^ cpfact, System::String^ adrliv, System::String^ villeliv, System::String^ cpliv) {
+	
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	System::String^ querystring = File::ReadAllText("ajouterClientScript.sql");
+
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+
+	command->Parameters->AddWithValue("@nom", nom);
+	command->Parameters->AddWithValue("@prenom", prenom);
+	command->Parameters->AddWithValue("@date_naissance", System::Convert::ToDateTime(date_naissance));
+	command->Parameters->AddWithValue("@nombre_commandes", System::Convert::ToInt32(nombre_commandes));
+	command->Parameters->AddWithValue("@adrfact", adrfact);
+	command->Parameters->AddWithValue("@villefact", villefact);
+	command->Parameters->AddWithValue("@cpfact", System::Convert::ToInt32(cpfact));
+	command->Parameters->AddWithValue("@adrliv", adrliv);
+	command->Parameters->AddWithValue("@villeliv", villeliv);
+	command->Parameters->AddWithValue("@cpliv", System::Convert::ToInt32(cpliv));
+
+	try
+	{
+		connection->Open();
+		command->ExecuteNonQuery();
+		connection->Close();
+	}
+	catch (System::Exception^ ex)
+	{
+		System::Console::WriteLine(ex->Message);
+	}
+}
+
+void Client::modifier(System::String^ ID_client, System::String^ ID_fact, System::String^ ID_liv, System::String^ nom, System::String^ prenom, System::String^ date, System::String^ nbcommandes, System::String^ adrfact, System::String^ villefact, System::String^ cpfact, System::String^ adrliv, System::String^ villeliv, System::String^ cpliv) {
+
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	System::String^ querystring = File::ReadAllText("modifierClientScript.sql");
+
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+
+	command->Parameters->AddWithValue("@ID_client", System::Convert::ToInt32(ID_client));
+	command->Parameters->AddWithValue("@ID_fact", System::Convert::ToInt32(ID_fact));
+	command->Parameters->AddWithValue("@ID_liv", System::Convert::ToInt32(ID_liv));
+
+	command->Parameters->AddWithValue("@nom", nom);
+	command->Parameters->AddWithValue("@prenom", prenom);
+	command->Parameters->AddWithValue("@date_naissance", System::Convert::ToDateTime(date));
+	command->Parameters->AddWithValue("@nombre_commandes", System::Convert::ToInt32(nbcommandes));
+
+	command->Parameters->AddWithValue("@adrfact", adrfact);
+	command->Parameters->AddWithValue("@villefact", villefact);
+	command->Parameters->AddWithValue("@cpfact", System::Convert::ToInt32(cpfact));
+
+	command->Parameters->AddWithValue("@adrliv", adrliv);
+	command->Parameters->AddWithValue("@villeliv", villeliv);
+	command->Parameters->AddWithValue("@cpliv", System::Convert::ToInt32(cpliv));
+
+	try
+	{
+		connection->Open();
+		command->ExecuteNonQuery();
+		connection->Close();
+	}
+	catch (System::Exception^ ex)
+	{
+		System::Windows::Forms::MessageBox::Show(ex->Message);
+	}
+}
+
+void Client::supprimer(System::String^ ID_client, System::String^ ID_fact, System::String^ ID_liv) {
+
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
+	System::String^ querystring = File::ReadAllText("supprimerClientScript.sql");
+
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+
+	command->Parameters->AddWithValue("@ID_client", System::Convert::ToInt32(ID_client));
+	command->Parameters->AddWithValue("@ID_fact", System::Convert::ToInt32(ID_fact));
+	command->Parameters->AddWithValue("@ID_liv", System::Convert::ToInt32(ID_liv));
+
+	try
+	{
+		connection->Open();
+		command->ExecuteNonQuery();
+		connection->Close();
+	}
+	catch (System::Exception^ ex)
+	{
+		System::Windows::Forms::MessageBox::Show(ex->Message);
+	}
+}
