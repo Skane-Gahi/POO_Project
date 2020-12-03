@@ -47,7 +47,7 @@ System::Data::DataSet^ Table::afficher(System::String^ NomTable)
 {
 	System::String^ querystring = "SELECT * FROM [ProjetPOO].[dbo].[" + NomTable + "];";
 
-	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, connection);
+	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, this->connection);
 
 	return this->ExecuteAdapter(adapter, NomTable);
 }

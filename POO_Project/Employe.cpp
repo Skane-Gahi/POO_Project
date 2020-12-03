@@ -4,37 +4,16 @@ using namespace System::IO;
 
 System::Data::DataSet^ Employe::afficher()
 {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
 	System::String^ querystring = File::ReadAllText("afficherEmployeScript.sql");
+	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, this->connection);
 
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, connection);
-
-	System::Data::DataSet^ dataset = gcnew System::Data::DataSet();
-
-	try
-	{
-		connection->Open();
-		adapter->Fill(dataset, "Employe");
-		connection->Close();
-
-		return dataset;
-
-	}
-	catch (System::Exception^ ex)
-	{
-		System::Windows::Forms::MessageBox::Show(ex->Message);
-		return dataset;
-	}
+	return this->ExecuteAdapter(adapter, "Employe");
 }
 
 void Employe::ajouter(System::String^ nom, System::String^ prenom, System::String^ date, System::String^ poste, System::String^ adresse, System::String^ ville, System::String^ cp) {
 	
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
 	System::String^ querystring = File::ReadAllText("ajouterEmployeScript.sql");
-
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, this->connection);
 
 	command->Parameters->AddWithValue("@nom", nom);
 	command->Parameters->AddWithValue("@prenom", prenom);
@@ -44,25 +23,13 @@ void Employe::ajouter(System::String^ nom, System::String^ prenom, System::Strin
 	command->Parameters->AddWithValue("@ville", ville);
 	command->Parameters->AddWithValue("@cp", System::Convert::ToInt32(cp));
 
-	try
-	{
-		connection->Open();
-		command->ExecuteNonQuery();
-		connection->Close();
-	}
-	catch (System::Exception^ ex)
-	{
-		System::Windows::Forms::MessageBox::Show(ex->Message);
-	}
+	this->ExecuteCommand(command);
 }
 
 void Employe::modifier(System::String^ ID, System::String^ nom, System::String^ prenom, System::String^ date, System::String^ poste, System::String^ adresse, System::String^ ville, System::String^ cp) {
 	
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
 	System::String^ querystring = File::ReadAllText("modifierEmployeScript.sql");
-
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, this->connection);
 
 	command->Parameters->AddWithValue("@ID", System::Convert::ToInt32(ID));
 
@@ -75,38 +42,16 @@ void Employe::modifier(System::String^ ID, System::String^ nom, System::String^ 
 	command->Parameters->AddWithValue("@ville", ville);
 	command->Parameters->AddWithValue("@cp", System::Convert::ToInt32(cp));
 
-	try
-	{
-		connection->Open();
-		command->ExecuteNonQuery();
-		connection->Close();
-	}
-	catch (System::Exception^ ex)
-	{
-		System::Windows::Forms::MessageBox::Show(ex->Message);
-	}
+	this->ExecuteCommand(command);
 }
 
 void Employe::supprimer(System::String^ ID, System::String^ ID_Adresse) {
 	
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True";
 	System::String^ querystring = File::ReadAllText("supprimerEmployeScript.sql");
-
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, connection);
+	System::Data::SqlClient::SqlCommand^ command = gcnew System::Data::SqlClient::SqlCommand(querystring, this->connection);
 
 	command->Parameters->AddWithValue("@ID", System::Convert::ToInt32(ID));
 	command->Parameters->AddWithValue("@ID_Adresse", System::Convert::ToInt32(ID_Adresse));
 
-
-	try
-	{
-		connection->Open();
-		command->ExecuteNonQuery();
-		connection->Close();
-	}
-	catch (System::Exception^ ex)
-	{
-		System::Windows::Forms::MessageBox::Show(ex->Message);
-	}
+	this->ExecuteCommand(command);
 }
