@@ -109,5 +109,29 @@
     <None Include="supprimerCommandeScript.sql">
       <Filter>Fichiers de ressources</Filter>
     </None>
+    <None Include="StatPanierMoyenScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatValeurComScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatProduitsSousSeuilScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Stat10MoinsVendusScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="Stat10PlusVendusScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatValeurAchatScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatMontantClientScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatCAScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
   </ItemGroup>
 </Project>

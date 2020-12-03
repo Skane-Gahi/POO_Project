@@ -5,6 +5,10 @@
 #include "Employe.h"
 #include "Produit.h"
 #include "Commande.h"
+#include <Windows.h>
+
+
+
 
 namespace BackForm {
 
@@ -88,8 +92,6 @@ namespace BackForm {
 
 	private: System::Windows::Forms::TextBox^ textBox_nom;
 	private: System::Windows::Forms::TextBox^ textBox_cp;
-
-
 
 	private: System::Windows::Forms::TextBox^ textBox_ville;
 
@@ -185,9 +187,42 @@ private: System::Windows::Forms::TextBox^ textBox_d_paiement;
 private: System::Windows::Forms::TextBox^ textBox_d_envoi;
 private: System::Windows::Forms::TextBox^ textBox_d_moyen;
 private: System::Windows::Forms::TextBox^ textBox_d_total;
+private: System::Windows::Forms::ProgressBar^ progressBar1;
+private: System::Windows::Forms::Label^ label_OK;
+private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel8;
+private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel9;
+
+
+private: System::Windows::Forms::Button^ button_s_simul;
+
+private: System::Windows::Forms::Button^ button_s_achat;
+
+private: System::Windows::Forms::Button^ button_s_com;
+
+private: System::Windows::Forms::Button^ button_s_10plus;
+
+private: System::Windows::Forms::Button^ button_s_10moins;
+
+
+private: System::Windows::Forms::Button^ button_s_total;
+
+private: System::Windows::Forms::Button^ button_s_seuil;
+private: System::Windows::Forms::Button^ button_s_panier;
+private: System::Windows::Forms::Button^ button_s_ca;
+private: System::Windows::Forms::DataGridView^ dataGridView2;
 
 
 	int Index;
+private: System::Windows::Forms::Label^ label_d_Client;
+private: System::Windows::Forms::TextBox^ textBox_d_Client;
+private: System::Windows::Forms::Label^ label_Year;
+private: System::Windows::Forms::Label^ label_Month;
+private: System::Windows::Forms::TextBox^ textBox_month;
+private: System::Windows::Forms::TextBox^ textBox_year;
+
+
+
+	   static System::String^ ID_client_click;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -261,8 +296,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->textBox_p_qte = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_p_seuil = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel6 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->textBox_d_produits = (gcnew System::Windows::Forms::TextBox());
-			this->textBox_d_qtes = (gcnew System::Windows::Forms::TextBox());
+			this->label_d_Client = (gcnew System::Windows::Forms::Label());
 			this->label_d_ref = (gcnew System::Windows::Forms::Label());
 			this->label_d_valide = (gcnew System::Windows::Forms::Label());
 			this->label_d_envoi = (gcnew System::Windows::Forms::Label());
@@ -277,6 +311,27 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->textBox_d_envoi = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_d_moyen = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_d_total = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_Client = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_qtes = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_d_produits = (gcnew System::Windows::Forms::TextBox());
+			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
+			this->label_OK = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel8 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->tableLayoutPanel9 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->label_Year = (gcnew System::Windows::Forms::Label());
+			this->button_s_simul = (gcnew System::Windows::Forms::Button());
+			this->button_s_achat = (gcnew System::Windows::Forms::Button());
+			this->button_s_com = (gcnew System::Windows::Forms::Button());
+			this->button_s_10plus = (gcnew System::Windows::Forms::Button());
+			this->button_s_10moins = (gcnew System::Windows::Forms::Button());
+			this->button_s_total = (gcnew System::Windows::Forms::Button());
+			this->button_s_seuil = (gcnew System::Windows::Forms::Button());
+			this->button_s_panier = (gcnew System::Windows::Forms::Button());
+			this->button_s_ca = (gcnew System::Windows::Forms::Button());
+			this->label_Month = (gcnew System::Windows::Forms::Label());
+			this->textBox_month = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_year = (gcnew System::Windows::Forms::TextBox());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel2->SuspendLayout();
@@ -285,6 +340,9 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->tableLayoutPanel5->SuspendLayout();
 			this->tableLayoutPanel7->SuspendLayout();
 			this->tableLayoutPanel6->SuspendLayout();
+			this->tableLayoutPanel8->SuspendLayout();
+			this->tableLayoutPanel9->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -317,8 +375,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_statistiques->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_statistiques->FlatAppearance->BorderSize = 4;
 			this->button_statistiques->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_statistiques->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->button_statistiques->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->button_statistiques->Location = System::Drawing::Point(3, 515);
 			this->button_statistiques->Name = L"button_statistiques";
 			this->button_statistiques->Size = System::Drawing::Size(194, 122);
@@ -335,7 +393,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_stock->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_stock->FlatAppearance->BorderSize = 4;
 			this->button_stock->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_stock->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_stock->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_stock->Location = System::Drawing::Point(3, 387);
 			this->button_stock->Name = L"button_stock";
@@ -353,7 +411,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_commandes->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_commandes->FlatAppearance->BorderSize = 4;
 			this->button_commandes->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_commandes->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_commandes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_commandes->Location = System::Drawing::Point(3, 259);
 			this->button_commandes->Name = L"button_commandes";
@@ -371,7 +429,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_clients->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_clients->FlatAppearance->BorderSize = 4;
 			this->button_clients->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_clients->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_clients->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_clients->Location = System::Drawing::Point(3, 131);
 			this->button_clients->Name = L"button_clients";
@@ -389,7 +447,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_employe->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_employe->FlatAppearance->BorderSize = 4;
 			this->button_employe->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_employe->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_employe->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_employe->Location = System::Drawing::Point(3, 3);
 			this->button_employe->Name = L"button_employe";
@@ -426,7 +484,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->tableLayoutPanel2->Controls->Add(this->button_previous, 1, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button__first, 0, 0);
 			this->tableLayoutPanel2->Enabled = false;
-			this->tableLayoutPanel2->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->tableLayoutPanel2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tableLayoutPanel2->Location = System::Drawing::Point(224, 347);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
@@ -504,7 +562,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->tableLayoutPanel3->Controls->Add(this->button_supprimer, 0, 2);
 			this->tableLayoutPanel3->Controls->Add(this->button_ajouter, 0, 0);
 			this->tableLayoutPanel3->Enabled = false;
-			this->tableLayoutPanel3->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->tableLayoutPanel3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tableLayoutPanel3->Location = System::Drawing::Point(224, 387);
 			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
@@ -567,7 +625,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->button_afficher->Enabled = false;
 			this->button_afficher->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button_afficher->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button_afficher->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_afficher->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_afficher->ForeColor = System::Drawing::Color::Black;
 			this->button_afficher->Location = System::Drawing::Point(458, 390);
@@ -631,12 +689,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_cp->BackColor = System::Drawing::Color::White;
 			this->textBox_cp->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_cp->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_cp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_cp->ForeColor = System::Drawing::Color::Black;
 			this->textBox_cp->Location = System::Drawing::Point(3, 276);
 			this->textBox_cp->Name = L"textBox_cp";
-			this->textBox_cp->Size = System::Drawing::Size(225, 32);
+			this->textBox_cp->Size = System::Drawing::Size(225, 31);
 			this->textBox_cp->TabIndex = 14;
 			this->textBox_cp->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -644,12 +702,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_ville->BackColor = System::Drawing::Color::White;
 			this->textBox_ville->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_ville->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_ville->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_ville->ForeColor = System::Drawing::Color::Black;
 			this->textBox_ville->Location = System::Drawing::Point(234, 198);
 			this->textBox_ville->Name = L"textBox_ville";
-			this->textBox_ville->Size = System::Drawing::Size(225, 32);
+			this->textBox_ville->Size = System::Drawing::Size(225, 31);
 			this->textBox_ville->TabIndex = 13;
 			this->textBox_ville->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -657,12 +715,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_adresse->BackColor = System::Drawing::Color::White;
 			this->textBox_adresse->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_adresse->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_adresse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_adresse->ForeColor = System::Drawing::Color::Black;
 			this->textBox_adresse->Location = System::Drawing::Point(3, 198);
 			this->textBox_adresse->Name = L"textBox_adresse";
-			this->textBox_adresse->Size = System::Drawing::Size(225, 32);
+			this->textBox_adresse->Size = System::Drawing::Size(225, 31);
 			this->textBox_adresse->TabIndex = 12;
 			this->textBox_adresse->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -670,12 +728,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_poste->BackColor = System::Drawing::Color::White;
 			this->textBox_poste->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_poste->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_poste->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_poste->ForeColor = System::Drawing::Color::Black;
 			this->textBox_poste->Location = System::Drawing::Point(234, 120);
 			this->textBox_poste->Name = L"textBox_poste";
-			this->textBox_poste->Size = System::Drawing::Size(225, 32);
+			this->textBox_poste->Size = System::Drawing::Size(225, 31);
 			this->textBox_poste->TabIndex = 11;
 			this->textBox_poste->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -683,12 +741,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_date_embauche->BackColor = System::Drawing::Color::White;
 			this->textBox_date_embauche->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_date_embauche->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->textBox_date_embauche->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textBox_date_embauche->ForeColor = System::Drawing::Color::Black;
 			this->textBox_date_embauche->Location = System::Drawing::Point(3, 120);
 			this->textBox_date_embauche->Name = L"textBox_date_embauche";
-			this->textBox_date_embauche->Size = System::Drawing::Size(225, 32);
+			this->textBox_date_embauche->Size = System::Drawing::Size(225, 31);
 			this->textBox_date_embauche->TabIndex = 10;
 			this->textBox_date_embauche->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -696,12 +754,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_prenom->BackColor = System::Drawing::Color::White;
 			this->textBox_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_prenom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_prenom->ForeColor = System::Drawing::Color::Black;
 			this->textBox_prenom->Location = System::Drawing::Point(234, 42);
 			this->textBox_prenom->Name = L"textBox_prenom";
-			this->textBox_prenom->Size = System::Drawing::Size(225, 32);
+			this->textBox_prenom->Size = System::Drawing::Size(225, 31);
 			this->textBox_prenom->TabIndex = 9;
 			this->textBox_prenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox_prenom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_prenom_TextChanged);
@@ -710,7 +768,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_prenom->AutoSize = true;
 			this->label_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_prenom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_prenom->Location = System::Drawing::Point(234, 0);
 			this->label_prenom->Name = L"label_prenom";
@@ -723,8 +781,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_date_embauche->AutoSize = true;
 			this->label_date_embauche->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_date_embauche->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->label_date_embauche->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->label_date_embauche->Location = System::Drawing::Point(3, 78);
 			this->label_date_embauche->Name = L"label_date_embauche";
 			this->label_date_embauche->Size = System::Drawing::Size(225, 39);
@@ -736,7 +794,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_poste->AutoSize = true;
 			this->label_poste->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_poste->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_poste->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_poste->Location = System::Drawing::Point(234, 78);
 			this->label_poste->Name = L"label_poste";
@@ -749,7 +807,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_adresse->AutoSize = true;
 			this->label_adresse->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_adresse->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_adresse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_adresse->Location = System::Drawing::Point(3, 156);
 			this->label_adresse->Name = L"label_adresse";
@@ -762,7 +820,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_ville->AutoSize = true;
 			this->label_ville->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_ville->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_ville->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_ville->Location = System::Drawing::Point(234, 156);
 			this->label_ville->Name = L"label_ville";
@@ -775,7 +833,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_cp->AutoSize = true;
 			this->label_cp->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_cp->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_cp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_cp->Location = System::Drawing::Point(3, 234);
 			this->label_cp->Name = L"label_cp";
@@ -788,12 +846,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_nom->BackColor = System::Drawing::Color::White;
 			this->textBox_nom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_nom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_nom->ForeColor = System::Drawing::Color::Black;
 			this->textBox_nom->Location = System::Drawing::Point(3, 42);
 			this->textBox_nom->Name = L"textBox_nom";
-			this->textBox_nom->Size = System::Drawing::Size(225, 32);
+			this->textBox_nom->Size = System::Drawing::Size(225, 31);
 			this->textBox_nom->TabIndex = 8;
 			this->textBox_nom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox_nom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_nom_TextChanged);
@@ -802,7 +860,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_nom->AutoSize = true;
 			this->label_nom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_nom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_nom->Location = System::Drawing::Point(3, 0);
 			this->label_nom->Name = L"label_nom";
@@ -860,7 +918,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox1_c_cpliv->BackColor = System::Drawing::Color::White;
 			this->textBox1_c_cpliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox1_c_cpliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox1_c_cpliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1_c_cpliv->ForeColor = System::Drawing::Color::Black;
 			this->textBox1_c_cpliv->Location = System::Drawing::Point(234, 282);
@@ -873,8 +931,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_villeliv->BackColor = System::Drawing::Color::White;
 			this->textBox_c_villeliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_villeliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->textBox_c_villeliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textBox_c_villeliv->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_villeliv->Location = System::Drawing::Point(3, 282);
 			this->textBox_c_villeliv->Name = L"textBox_c_villeliv";
@@ -886,7 +944,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_adrliv->BackColor = System::Drawing::Color::White;
 			this->textBox_c_adrliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_adrliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_adrliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_adrliv->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_adrliv->Location = System::Drawing::Point(234, 220);
@@ -899,7 +957,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_cpfact->BackColor = System::Drawing::Color::White;
 			this->textBox_c_cpfact->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_cpfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_cpfact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_cpfact->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_cpfact->Location = System::Drawing::Point(3, 220);
@@ -912,8 +970,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_villefact->BackColor = System::Drawing::Color::White;
 			this->textBox_c_villefact->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_villefact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->textBox_c_villefact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textBox_c_villefact->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_villefact->Location = System::Drawing::Point(234, 158);
 			this->textBox_c_villefact->Name = L"textBox_c_villefact";
@@ -925,7 +983,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_adrfact->BackColor = System::Drawing::Color::White;
 			this->textBox_c_adrfact->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_adrfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_adrfact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_adrfact->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_adrfact->Location = System::Drawing::Point(3, 158);
@@ -938,8 +996,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_nbcommande->BackColor = System::Drawing::Color::White;
 			this->textBox_c_nbcommande->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->textBox_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textBox_c_nbcommande->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_nbcommande->Location = System::Drawing::Point(234, 96);
 			this->textBox_c_nbcommande->Name = L"textBox_c_nbcommande";
@@ -951,7 +1009,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_c_date->BackColor = System::Drawing::Color::White;
 			this->textBox_c_date->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_date->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_date->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_date->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_date->Location = System::Drawing::Point(3, 96);
@@ -959,12 +1017,13 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->textBox_c_date->Size = System::Drawing::Size(225, 29);
 			this->textBox_c_date->TabIndex = 13;
 			this->textBox_c_date->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_c_date->TextChanged += gcnew System::EventHandler(this, &Form::textBox_c_date_TextChanged);
 			// 
 			// textBox_c_prenom
 			// 
 			this->textBox_c_prenom->BackColor = System::Drawing::Color::White;
 			this->textBox_c_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_prenom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_prenom->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_prenom->Location = System::Drawing::Point(234, 34);
@@ -972,12 +1031,13 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->textBox_c_prenom->Size = System::Drawing::Size(225, 29);
 			this->textBox_c_prenom->TabIndex = 12;
 			this->textBox_c_prenom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_c_prenom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_c_prenom_TextChanged);
 			// 
 			// textBox_c_nom
 			// 
 			this->textBox_c_nom->BackColor = System::Drawing::Color::White;
 			this->textBox_c_nom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_c_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_c_nom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_c_nom->ForeColor = System::Drawing::Color::Black;
 			this->textBox_c_nom->Location = System::Drawing::Point(3, 34);
@@ -985,12 +1045,13 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->textBox_c_nom->Size = System::Drawing::Size(225, 29);
 			this->textBox_c_nom->TabIndex = 11;
 			this->textBox_c_nom->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_c_nom->TextChanged += gcnew System::EventHandler(this, &Form::textBox_c_nom_TextChanged);
 			// 
 			// label_c_nom
 			// 
 			this->label_c_nom->AutoSize = true;
 			this->label_c_nom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_nom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_nom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_nom->Location = System::Drawing::Point(3, 0);
 			this->label_c_nom->Name = L"label_c_nom";
@@ -1003,7 +1064,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_prenom->AutoSize = true;
 			this->label_c_prenom->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_prenom->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_prenom->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_prenom->Location = System::Drawing::Point(234, 0);
 			this->label_c_prenom->Name = L"label_c_prenom";
@@ -1016,7 +1077,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_date->AutoSize = true;
 			this->label_c_date->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_date->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_date->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_date->Location = System::Drawing::Point(3, 62);
 			this->label_c_date->Name = L"label_c_date";
@@ -1029,7 +1090,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_nbcommande->AutoSize = true;
 			this->label_c_nbcommande->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_nbcommande->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_nbcommande->Location = System::Drawing::Point(234, 62);
 			this->label_c_nbcommande->Name = L"label_c_nbcommande";
@@ -1042,7 +1103,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_adrfact->AutoSize = true;
 			this->label_c_adrfact->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_adrfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_adrfact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_adrfact->Location = System::Drawing::Point(3, 124);
 			this->label_c_adrfact->Name = L"label_c_adrfact";
@@ -1054,11 +1115,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// label_c_villefact
 			// 
 			this->label_c_villefact->AutoSize = true;
-			this->label_c_villefact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_villefact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_villefact->Location = System::Drawing::Point(234, 124);
 			this->label_c_villefact->Name = L"label_c_villefact";
-			this->label_c_villefact->Size = System::Drawing::Size(48, 25);
+			this->label_c_villefact->Size = System::Drawing::Size(58, 25);
 			this->label_c_villefact->TabIndex = 6;
 			this->label_c_villefact->Text = L"Ville";
 			this->label_c_villefact->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1067,7 +1128,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_cpfact->AutoSize = true;
 			this->label_c_cpfact->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_cpfact->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_cpfact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_cpfact->Location = System::Drawing::Point(3, 186);
 			this->label_c_cpfact->Name = L"label_c_cpfact";
@@ -1080,7 +1141,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_adrliv->AutoSize = true;
 			this->label_c_adrliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_adrliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_adrliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_adrliv->Location = System::Drawing::Point(234, 186);
 			this->label_c_adrliv->Name = L"label_c_adrliv";
@@ -1093,7 +1154,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_villeliv->AutoSize = true;
 			this->label_c_villeliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_villeliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_villeliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_villeliv->Location = System::Drawing::Point(3, 248);
 			this->label_c_villeliv->Name = L"label_c_villeliv";
@@ -1106,7 +1167,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_c_cpliv->AutoSize = true;
 			this->label_c_cpliv->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_c_cpliv->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_c_cpliv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_c_cpliv->Location = System::Drawing::Point(234, 248);
 			this->label_c_cpliv->Name = L"label_c_cpliv";
@@ -1151,12 +1212,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_p_tva->BackColor = System::Drawing::Color::White;
 			this->textBox_p_tva->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_p_tva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_p_tva->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_p_tva->ForeColor = System::Drawing::Color::Black;
 			this->textBox_p_tva->Location = System::Drawing::Point(3, 263);
 			this->textBox_p_tva->Name = L"textBox_p_tva";
-			this->textBox_p_tva->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_tva->Size = System::Drawing::Size(225, 31);
 			this->textBox_p_tva->TabIndex = 17;
 			this->textBox_p_tva->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -1164,7 +1225,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_p_desi->AutoSize = true;
 			this->label_p_desi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_p_desi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_p_desi->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_p_desi->Location = System::Drawing::Point(3, 0);
 			this->label_p_desi->Name = L"label_p_desi";
@@ -1177,7 +1238,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_p_pht->AutoSize = true;
 			this->label_p_pht->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_p_pht->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_p_pht->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_p_pht->Location = System::Drawing::Point(234, 0);
 			this->label_p_pht->Name = L"label_p_pht";
@@ -1190,7 +1251,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_p_qte->AutoSize = true;
 			this->label_p_qte->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_p_qte->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_p_qte->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_p_qte->Location = System::Drawing::Point(3, 104);
 			this->label_p_qte->Name = L"label_p_qte";
@@ -1203,7 +1264,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_p_seuil->AutoSize = true;
 			this->label_p_seuil->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_p_seuil->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_p_seuil->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_p_seuil->Location = System::Drawing::Point(234, 104);
 			this->label_p_seuil->Name = L"label_p_seuil";
@@ -1216,7 +1277,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_p_tva->AutoSize = true;
 			this->label_p_tva->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_p_tva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_p_tva->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_p_tva->Location = System::Drawing::Point(3, 208);
 			this->label_p_tva->Name = L"label_p_tva";
@@ -1229,25 +1290,26 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_p_desi->BackColor = System::Drawing::Color::White;
 			this->textBox_p_desi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_p_desi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_p_desi->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_p_desi->ForeColor = System::Drawing::Color::Black;
 			this->textBox_p_desi->Location = System::Drawing::Point(3, 55);
 			this->textBox_p_desi->Name = L"textBox_p_desi";
-			this->textBox_p_desi->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_desi->Size = System::Drawing::Size(225, 31);
 			this->textBox_p_desi->TabIndex = 14;
 			this->textBox_p_desi->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_p_desi->TextChanged += gcnew System::EventHandler(this, &Form::textBox_p_desi_TextChanged);
 			// 
 			// textBox_p_pht
 			// 
 			this->textBox_p_pht->BackColor = System::Drawing::Color::White;
 			this->textBox_p_pht->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_p_pht->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_p_pht->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_p_pht->ForeColor = System::Drawing::Color::Black;
 			this->textBox_p_pht->Location = System::Drawing::Point(234, 55);
 			this->textBox_p_pht->Name = L"textBox_p_pht";
-			this->textBox_p_pht->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_pht->Size = System::Drawing::Size(225, 31);
 			this->textBox_p_pht->TabIndex = 13;
 			this->textBox_p_pht->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -1255,12 +1317,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_p_qte->BackColor = System::Drawing::Color::White;
 			this->textBox_p_qte->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_p_qte->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_p_qte->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_p_qte->ForeColor = System::Drawing::Color::Black;
 			this->textBox_p_qte->Location = System::Drawing::Point(3, 159);
 			this->textBox_p_qte->Name = L"textBox_p_qte";
-			this->textBox_p_qte->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_qte->Size = System::Drawing::Size(225, 31);
 			this->textBox_p_qte->TabIndex = 15;
 			this->textBox_p_qte->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -1268,12 +1330,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->textBox_p_seuil->BackColor = System::Drawing::Color::White;
 			this->textBox_p_seuil->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox_p_seuil->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_p_seuil->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_p_seuil->ForeColor = System::Drawing::Color::Black;
 			this->textBox_p_seuil->Location = System::Drawing::Point(234, 159);
 			this->textBox_p_seuil->Name = L"textBox_p_seuil";
-			this->textBox_p_seuil->Size = System::Drawing::Size(225, 32);
+			this->textBox_p_seuil->Size = System::Drawing::Size(225, 31);
 			this->textBox_p_seuil->TabIndex = 16;
 			this->textBox_p_seuil->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -1284,8 +1346,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 				50)));
 			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel6->Controls->Add(this->textBox_d_produits, 0, 7);
-			this->tableLayoutPanel6->Controls->Add(this->textBox_d_qtes, 0, 7);
+			this->tableLayoutPanel6->Controls->Add(this->label_d_Client, 0, 9);
 			this->tableLayoutPanel6->Controls->Add(this->label_d_ref, 0, 0);
 			this->tableLayoutPanel6->Controls->Add(this->label_d_valide, 1, 0);
 			this->tableLayoutPanel6->Controls->Add(this->label_d_envoi, 0, 2);
@@ -1300,55 +1361,49 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->tableLayoutPanel6->Controls->Add(this->textBox_d_envoi, 0, 3);
 			this->tableLayoutPanel6->Controls->Add(this->textBox_d_moyen, 0, 5);
 			this->tableLayoutPanel6->Controls->Add(this->textBox_d_total, 1, 5);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_Client, 1, 9);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_qtes, 1, 7);
+			this->tableLayoutPanel6->Controls->Add(this->textBox_d_produits, 0, 7);
 			this->tableLayoutPanel6->Enabled = false;
 			this->tableLayoutPanel6->Location = System::Drawing::Point(224, 12);
 			this->tableLayoutPanel6->Name = L"tableLayoutPanel6";
-			this->tableLayoutPanel6->RowCount = 8;
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
-			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 12.5F)));
+			this->tableLayoutPanel6->RowCount = 10;
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 10)));
 			this->tableLayoutPanel6->Size = System::Drawing::Size(462, 318);
 			this->tableLayoutPanel6->TabIndex = 7;
 			this->tableLayoutPanel6->Visible = false;
 			// 
-			// textBox_d_produits
+			// label_d_Client
 			// 
-			this->textBox_d_produits->BackColor = System::Drawing::Color::White;
-			this->textBox_d_produits->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_Client->AutoSize = true;
+			this->label_d_Client->Dock = System::Windows::Forms::DockStyle::Right;
+			this->label_d_Client->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox_d_produits->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_produits->Location = System::Drawing::Point(3, 276);
-			this->textBox_d_produits->Name = L"textBox_d_produits";
-			this->textBox_d_produits->Size = System::Drawing::Size(225, 32);
-			this->textBox_d_produits->TabIndex = 22;
-			this->textBox_d_produits->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox_d_qtes
-			// 
-			this->textBox_d_qtes->BackColor = System::Drawing::Color::White;
-			this->textBox_d_qtes->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox_d_qtes->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_qtes->Location = System::Drawing::Point(234, 276);
-			this->textBox_d_qtes->Name = L"textBox_d_qtes";
-			this->textBox_d_qtes->Size = System::Drawing::Size(225, 32);
-			this->textBox_d_qtes->TabIndex = 21;
-			this->textBox_d_qtes->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->label_d_Client->Location = System::Drawing::Point(155, 279);
+			this->label_d_Client->Name = L"label_d_Client";
+			this->label_d_Client->Size = System::Drawing::Size(73, 39);
+			this->label_d_Client->TabIndex = 23;
+			this->label_d_Client->Text = L"Client";
+			this->label_d_Client->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// label_d_ref
 			// 
 			this->label_d_ref->AutoSize = true;
 			this->label_d_ref->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_ref->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_ref->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_d_ref->Location = System::Drawing::Point(3, 0);
 			this->label_d_ref->Name = L"label_d_ref";
-			this->label_d_ref->Size = System::Drawing::Size(225, 39);
+			this->label_d_ref->Size = System::Drawing::Size(225, 31);
 			this->label_d_ref->TabIndex = 4;
 			this->label_d_ref->Text = L"reference";
 			this->label_d_ref->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1357,11 +1412,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_d_valide->AutoSize = true;
 			this->label_d_valide->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_valide->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_valide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label_d_valide->Location = System::Drawing::Point(234, 0);
 			this->label_d_valide->Name = L"label_d_valide";
-			this->label_d_valide->Size = System::Drawing::Size(225, 39);
+			this->label_d_valide->Size = System::Drawing::Size(225, 31);
 			this->label_d_valide->TabIndex = 5;
 			this->label_d_valide->Text = L"paiment valide";
 			this->label_d_valide->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1370,11 +1425,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_d_envoi->AutoSize = true;
 			this->label_d_envoi->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_envoi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_envoi->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_d_envoi->Location = System::Drawing::Point(3, 78);
+			this->label_d_envoi->Location = System::Drawing::Point(3, 62);
 			this->label_d_envoi->Name = L"label_d_envoi";
-			this->label_d_envoi->Size = System::Drawing::Size(225, 39);
+			this->label_d_envoi->Size = System::Drawing::Size(225, 31);
 			this->label_d_envoi->TabIndex = 6;
 			this->label_d_envoi->Text = L"date d\'envoi";
 			this->label_d_envoi->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1383,11 +1438,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_paiment->AutoSize = true;
 			this->label_paiment->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_paiment->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_paiment->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_paiment->Location = System::Drawing::Point(234, 78);
+			this->label_paiment->Location = System::Drawing::Point(234, 62);
 			this->label_paiment->Name = L"label_paiment";
-			this->label_paiment->Size = System::Drawing::Size(225, 39);
+			this->label_paiment->Size = System::Drawing::Size(225, 31);
 			this->label_paiment->TabIndex = 7;
 			this->label_paiment->Text = L"date de paiement";
 			this->label_paiment->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1396,11 +1451,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_d_moyen->AutoSize = true;
 			this->label_d_moyen->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_moyen->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_moyen->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_d_moyen->Location = System::Drawing::Point(3, 156);
+			this->label_d_moyen->Location = System::Drawing::Point(3, 124);
 			this->label_d_moyen->Name = L"label_d_moyen";
-			this->label_d_moyen->Size = System::Drawing::Size(225, 39);
+			this->label_d_moyen->Size = System::Drawing::Size(225, 31);
 			this->label_d_moyen->TabIndex = 8;
 			this->label_d_moyen->Text = L"moyen de paiement";
 			this->label_d_moyen->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1409,11 +1464,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_total->AutoSize = true;
 			this->label_total->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_total->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_total->Location = System::Drawing::Point(234, 156);
+			this->label_total->Location = System::Drawing::Point(234, 124);
 			this->label_total->Name = L"label_total";
-			this->label_total->Size = System::Drawing::Size(225, 39);
+			this->label_total->Size = System::Drawing::Size(225, 31);
 			this->label_total->TabIndex = 9;
 			this->label_total->Text = L"nombre totale d\'articles";
 			this->label_total->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1422,11 +1477,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_d_produits->AutoSize = true;
 			this->label_d_produits->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_produits->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_produits->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_d_produits->Location = System::Drawing::Point(3, 234);
+			this->label_d_produits->Location = System::Drawing::Point(3, 186);
 			this->label_d_produits->Name = L"label_d_produits";
-			this->label_d_produits->Size = System::Drawing::Size(225, 39);
+			this->label_d_produits->Size = System::Drawing::Size(225, 31);
 			this->label_d_produits->TabIndex = 10;
 			this->label_d_produits->Text = L"Produits";
 			this->label_d_produits->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1435,11 +1490,11 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// 
 			this->label_d_qtes->AutoSize = true;
 			this->label_d_qtes->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->label_d_qtes->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label_d_qtes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label_d_qtes->Location = System::Drawing::Point(234, 234);
+			this->label_d_qtes->Location = System::Drawing::Point(234, 186);
 			this->label_d_qtes->Name = L"label_d_qtes";
-			this->label_d_qtes->Size = System::Drawing::Size(225, 39);
+			this->label_d_qtes->Size = System::Drawing::Size(225, 31);
 			this->label_d_qtes->TabIndex = 11;
 			this->label_d_qtes->Text = L"Quantités";
 			this->label_d_qtes->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -1447,74 +1502,363 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			// textBox_d_ref
 			// 
 			this->textBox_d_ref->BackColor = System::Drawing::Color::White;
-			this->textBox_d_ref->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_d_ref->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_d_ref->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_ref->Location = System::Drawing::Point(3, 42);
+			this->textBox_d_ref->Location = System::Drawing::Point(3, 34);
 			this->textBox_d_ref->Name = L"textBox_d_ref";
-			this->textBox_d_ref->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_ref->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_ref->TabIndex = 15;
 			this->textBox_d_ref->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_d_ref->TextChanged += gcnew System::EventHandler(this, &Form::textBox_d_ref_TextChanged);
 			// 
 			// textBox_d_valide
 			// 
 			this->textBox_d_valide->BackColor = System::Drawing::Color::White;
-			this->textBox_d_valide->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_d_valide->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_d_valide->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_valide->Location = System::Drawing::Point(234, 42);
+			this->textBox_d_valide->Location = System::Drawing::Point(234, 34);
 			this->textBox_d_valide->Name = L"textBox_d_valide";
-			this->textBox_d_valide->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_valide->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_valide->TabIndex = 16;
 			this->textBox_d_valide->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox_d_paiement
 			// 
 			this->textBox_d_paiement->BackColor = System::Drawing::Color::White;
-			this->textBox_d_paiement->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->textBox_d_paiement->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->textBox_d_paiement->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_paiement->Location = System::Drawing::Point(234, 120);
+			this->textBox_d_paiement->Location = System::Drawing::Point(234, 96);
 			this->textBox_d_paiement->Name = L"textBox_d_paiement";
-			this->textBox_d_paiement->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_paiement->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_paiement->TabIndex = 17;
 			this->textBox_d_paiement->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox_d_envoi
 			// 
 			this->textBox_d_envoi->BackColor = System::Drawing::Color::White;
-			this->textBox_d_envoi->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_d_envoi->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_d_envoi->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_envoi->Location = System::Drawing::Point(3, 120);
+			this->textBox_d_envoi->Location = System::Drawing::Point(3, 96);
 			this->textBox_d_envoi->Name = L"textBox_d_envoi";
-			this->textBox_d_envoi->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_envoi->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_envoi->TabIndex = 18;
 			this->textBox_d_envoi->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox_d_moyen
 			// 
 			this->textBox_d_moyen->BackColor = System::Drawing::Color::White;
-			this->textBox_d_moyen->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_d_moyen->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_d_moyen->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_moyen->Location = System::Drawing::Point(3, 198);
+			this->textBox_d_moyen->Location = System::Drawing::Point(3, 158);
 			this->textBox_d_moyen->Name = L"textBox_d_moyen";
-			this->textBox_d_moyen->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_moyen->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_moyen->TabIndex = 19;
 			this->textBox_d_moyen->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox_d_total
 			// 
 			this->textBox_d_total->BackColor = System::Drawing::Color::White;
-			this->textBox_d_total->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox_d_total->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox_d_total->ForeColor = System::Drawing::Color::Black;
-			this->textBox_d_total->Location = System::Drawing::Point(234, 198);
+			this->textBox_d_total->Location = System::Drawing::Point(234, 158);
 			this->textBox_d_total->Name = L"textBox_d_total";
-			this->textBox_d_total->Size = System::Drawing::Size(225, 32);
+			this->textBox_d_total->Size = System::Drawing::Size(225, 31);
 			this->textBox_d_total->TabIndex = 20;
 			this->textBox_d_total->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_Client
+			// 
+			this->textBox_d_Client->BackColor = System::Drawing::Color::White;
+			this->textBox_d_Client->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_Client->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_Client->Location = System::Drawing::Point(234, 282);
+			this->textBox_d_Client->Name = L"textBox_d_Client";
+			this->textBox_d_Client->Size = System::Drawing::Size(225, 31);
+			this->textBox_d_Client->TabIndex = 24;
+			this->textBox_d_Client->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox_d_Client->TextChanged += gcnew System::EventHandler(this, &Form::textBox_d_Client_TextChanged_1);
+			// 
+			// textBox_d_qtes
+			// 
+			this->textBox_d_qtes->BackColor = System::Drawing::Color::White;
+			this->textBox_d_qtes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_d_qtes->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_qtes->Location = System::Drawing::Point(234, 220);
+			this->textBox_d_qtes->Name = L"textBox_d_qtes";
+			this->textBox_d_qtes->Size = System::Drawing::Size(225, 31);
+			this->textBox_d_qtes->TabIndex = 21;
+			this->textBox_d_qtes->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// textBox_d_produits
+			// 
+			this->textBox_d_produits->BackColor = System::Drawing::Color::White;
+			this->textBox_d_produits->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->textBox_d_produits->ForeColor = System::Drawing::Color::Black;
+			this->textBox_d_produits->Location = System::Drawing::Point(3, 220);
+			this->textBox_d_produits->Name = L"textBox_d_produits";
+			this->textBox_d_produits->Size = System::Drawing::Size(225, 31);
+			this->textBox_d_produits->TabIndex = 22;
+			this->textBox_d_produits->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// progressBar1
+			// 
+			this->progressBar1->ForeColor = System::Drawing::Color::Lime;
+			this->progressBar1->Location = System::Drawing::Point(3, 3);
+			this->progressBar1->Name = L"progressBar1";
+			this->progressBar1->Size = System::Drawing::Size(222, 28);
+			this->progressBar1->TabIndex = 8;
+			// 
+			// label_OK
+			// 
+			this->label_OK->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->label_OK->AutoSize = true;
+			this->label_OK->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_OK->Location = System::Drawing::Point(231, 0);
+			this->label_OK->Name = L"label_OK";
+			this->label_OK->Size = System::Drawing::Size(222, 48);
+			this->label_OK->TabIndex = 9;
+			// 
+			// tableLayoutPanel8
+			// 
+			this->tableLayoutPanel8->ColumnCount = 2;
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel8->Controls->Add(this->progressBar1, 0, 0);
+			this->tableLayoutPanel8->Controls->Add(this->label_OK, 1, 0);
+			this->tableLayoutPanel8->Location = System::Drawing::Point(227, 556);
+			this->tableLayoutPanel8->Name = L"tableLayoutPanel8";
+			this->tableLayoutPanel8->RowCount = 1;
+			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel8->Size = System::Drawing::Size(456, 48);
+			this->tableLayoutPanel8->TabIndex = 10;
+			this->tableLayoutPanel8->Visible = false;
+			// 
+			// tableLayoutPanel9
+			// 
+			this->tableLayoutPanel9->ColumnCount = 2;
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel9->Controls->Add(this->label_Year, 0, 1);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_simul, 0, 6);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_achat, 1, 5);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_com, 0, 5);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_10plus, 1, 4);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_10moins, 0, 4);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_total, 1, 3);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_seuil, 0, 3);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_panier, 0, 2);
+			this->tableLayoutPanel9->Controls->Add(this->button_s_ca, 1, 2);
+			this->tableLayoutPanel9->Controls->Add(this->label_Month, 0, 0);
+			this->tableLayoutPanel9->Controls->Add(this->textBox_month, 1, 0);
+			this->tableLayoutPanel9->Controls->Add(this->textBox_year, 1, 1);
+			this->tableLayoutPanel9->Location = System::Drawing::Point(224, 12);
+			this->tableLayoutPanel9->Name = L"tableLayoutPanel9";
+			this->tableLayoutPanel9->RowCount = 7;
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 49)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 45)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->Size = System::Drawing::Size(462, 493);
+			this->tableLayoutPanel9->TabIndex = 12;
+			this->tableLayoutPanel9->Visible = false;
+			// 
+			// label_Year
+			// 
+			this->label_Year->AutoSize = true;
+			this->label_Year->Dock = System::Windows::Forms::DockStyle::Right;
+			this->label_Year->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_Year->Location = System::Drawing::Point(159, 49);
+			this->label_Year->Name = L"label_Year";
+			this->label_Year->Size = System::Drawing::Size(69, 45);
+			this->label_Year->TabIndex = 12;
+			this->label_Year->Text = L"Année";
+			// 
+			// button_s_simul
+			// 
+			this->button_s_simul->BackColor = System::Drawing::Color::White;
+			this->button_s_simul->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_simul->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_simul->Location = System::Drawing::Point(3, 413);
+			this->button_s_simul->Name = L"button_s_simul";
+			this->button_s_simul->Size = System::Drawing::Size(225, 64);
+			this->button_s_simul->TabIndex = 8;
+			this->button_s_simul->Text = L"Simulation";
+			this->button_s_simul->UseVisualStyleBackColor = false;
+			// 
+			// button_s_achat
+			// 
+			this->button_s_achat->BackColor = System::Drawing::Color::White;
+			this->button_s_achat->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_achat->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_achat->Location = System::Drawing::Point(234, 334);
+			this->button_s_achat->Name = L"button_s_achat";
+			this->button_s_achat->Size = System::Drawing::Size(225, 64);
+			this->button_s_achat->TabIndex = 7;
+			this->button_s_achat->Text = L"Valeur d\'achat du stock";
+			this->button_s_achat->UseVisualStyleBackColor = false;
+			this->button_s_achat->Click += gcnew System::EventHandler(this, &Form::button_s_achat_Click);
+			// 
+			// button_s_com
+			// 
+			this->button_s_com->BackColor = System::Drawing::Color::White;
+			this->button_s_com->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_com->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_com->Location = System::Drawing::Point(3, 334);
+			this->button_s_com->Name = L"button_s_com";
+			this->button_s_com->Size = System::Drawing::Size(225, 64);
+			this->button_s_com->TabIndex = 6;
+			this->button_s_com->Text = L"Valeur commerciale du stock";
+			this->button_s_com->UseVisualStyleBackColor = false;
+			this->button_s_com->Click += gcnew System::EventHandler(this, &Form::button_s_com_Click);
+			// 
+			// button_s_10plus
+			// 
+			this->button_s_10plus->BackColor = System::Drawing::Color::White;
+			this->button_s_10plus->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_10plus->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_10plus->Location = System::Drawing::Point(234, 255);
+			this->button_s_10plus->Name = L"button_s_10plus";
+			this->button_s_10plus->Size = System::Drawing::Size(225, 64);
+			this->button_s_10plus->TabIndex = 5;
+			this->button_s_10plus->Text = L"10 artcles les plus vendus";
+			this->button_s_10plus->UseVisualStyleBackColor = false;
+			this->button_s_10plus->Click += gcnew System::EventHandler(this, &Form::button_s_10plus_Click);
+			// 
+			// button_s_10moins
+			// 
+			this->button_s_10moins->BackColor = System::Drawing::Color::White;
+			this->button_s_10moins->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_10moins->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_10moins->Location = System::Drawing::Point(3, 255);
+			this->button_s_10moins->Name = L"button_s_10moins";
+			this->button_s_10moins->Size = System::Drawing::Size(225, 64);
+			this->button_s_10moins->TabIndex = 4;
+			this->button_s_10moins->Text = L"10 articles les moins vendus";
+			this->button_s_10moins->UseVisualStyleBackColor = false;
+			this->button_s_10moins->Click += gcnew System::EventHandler(this, &Form::button_s_10moins_Click);
+			// 
+			// button_s_total
+			// 
+			this->button_s_total->BackColor = System::Drawing::Color::White;
+			this->button_s_total->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_total->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_total->Location = System::Drawing::Point(234, 176);
+			this->button_s_total->Name = L"button_s_total";
+			this->button_s_total->Size = System::Drawing::Size(225, 64);
+			this->button_s_total->TabIndex = 3;
+			this->button_s_total->Text = L"Montant total pour un client";
+			this->button_s_total->UseVisualStyleBackColor = false;
+			this->button_s_total->Click += gcnew System::EventHandler(this, &Form::button_s_total_Click);
+			// 
+			// button_s_seuil
+			// 
+			this->button_s_seuil->BackColor = System::Drawing::Color::White;
+			this->button_s_seuil->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_s_seuil->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_seuil->Location = System::Drawing::Point(3, 176);
+			this->button_s_seuil->Name = L"button_s_seuil";
+			this->button_s_seuil->Size = System::Drawing::Size(225, 64);
+			this->button_s_seuil->TabIndex = 2;
+			this->button_s_seuil->Text = L"Produits sous le seui de reapprovisonnement";
+			this->button_s_seuil->UseVisualStyleBackColor = false;
+			this->button_s_seuil->Click += gcnew System::EventHandler(this, &Form::button_s_seuil_Click);
+			// 
+			// button_s_panier
+			// 
+			this->button_s_panier->BackColor = System::Drawing::Color::White;
+			this->button_s_panier->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_panier->Location = System::Drawing::Point(3, 97);
+			this->button_s_panier->Name = L"button_s_panier";
+			this->button_s_panier->Size = System::Drawing::Size(225, 56);
+			this->button_s_panier->TabIndex = 0;
+			this->button_s_panier->Text = L"Panier moyen";
+			this->button_s_panier->UseVisualStyleBackColor = false;
+			this->button_s_panier->Click += gcnew System::EventHandler(this, &Form::button_s_panier_Click);
+			// 
+			// button_s_ca
+			// 
+			this->button_s_ca->BackColor = System::Drawing::Color::White;
+			this->button_s_ca->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_s_ca->Location = System::Drawing::Point(234, 97);
+			this->button_s_ca->Name = L"button_s_ca";
+			this->button_s_ca->Size = System::Drawing::Size(225, 56);
+			this->button_s_ca->TabIndex = 1;
+			this->button_s_ca->Text = L"Chiffre d\'affaire";
+			this->button_s_ca->UseVisualStyleBackColor = false;
+			this->button_s_ca->Click += gcnew System::EventHandler(this, &Form::button_s_ca_Click);
+			// 
+			// label_Month
+			// 
+			this->label_Month->AutoSize = true;
+			this->label_Month->Dock = System::Windows::Forms::DockStyle::Right;
+			this->label_Month->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_Month->Location = System::Drawing::Point(174, 0);
+			this->label_Month->Name = L"label_Month";
+			this->label_Month->Size = System::Drawing::Size(54, 49);
+			this->label_Month->TabIndex = 11;
+			this->label_Month->Text = L"Mois";
+			// 
+			// textBox_month
+			// 
+			this->textBox_month->Dock = System::Windows::Forms::DockStyle::Top;
+			this->textBox_month->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_month->Location = System::Drawing::Point(234, 3);
+			this->textBox_month->Name = L"textBox_month";
+			this->textBox_month->Size = System::Drawing::Size(225, 33);
+			this->textBox_month->TabIndex = 9;
+			// 
+			// textBox_year
+			// 
+			this->textBox_year->Dock = System::Windows::Forms::DockStyle::Top;
+			this->textBox_year->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_year->Location = System::Drawing::Point(234, 52);
+			this->textBox_year->Name = L"textBox_year";
+			this->textBox_year->Size = System::Drawing::Size(225, 33);
+			this->textBox_year->TabIndex = 10;
+			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Enabled = false;
+			this->dataGridView2->Location = System::Drawing::Point(706, 208);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->Size = System::Drawing::Size(647, 429);
+			this->dataGridView2->TabIndex = 1;
+			this->dataGridView2->Visible = false;
+			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form::dataGridView2_CellContentClick);
 			// 
 			// Form
 			// 
@@ -1522,6 +1866,9 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Gray;
 			this->ClientSize = System::Drawing::Size(1421, 640);
+			this->Controls->Add(this->dataGridView2);
+			this->Controls->Add(this->tableLayoutPanel9);
+			this->Controls->Add(this->tableLayoutPanel8);
 			this->Controls->Add(this->tableLayoutPanel6);
 			this->Controls->Add(this->tableLayoutPanel7);
 			this->Controls->Add(this->tableLayoutPanel5);
@@ -1547,12 +1894,26 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			this->tableLayoutPanel7->PerformLayout();
 			this->tableLayoutPanel6->ResumeLayout(false);
 			this->tableLayoutPanel6->PerformLayout();
+			this->tableLayoutPanel8->ResumeLayout(false);
+			this->tableLayoutPanel8->PerformLayout();
+			this->tableLayoutPanel9->ResumeLayout(false);
+			this->tableLayoutPanel9->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void Form_Load(System::Object^ sender, System::EventArgs^ e) 
 	{
+		// Set Maximum to the total number of files to copy.
+		this->progressBar1->Maximum = 2;
+
+		// Set the initial value of the ProgressBar.
+		this->progressBar1->Minimum = 1;
+		this->progressBar1->Value = 1;
+
+		// Set the Step property to a value of 1 to represent each file being copied.
+		this->progressBar1->Step = 1;
 		
 	}
 	private: void activatebuttons() 
@@ -1560,6 +1921,27 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->tableLayoutPanel2->Enabled = true;
 		this->tableLayoutPanel3->Enabled = true;
 		this->button_afficher->Enabled = true;
+	}
+	private: void textBoxToGrid(System::Windows::Forms::TextBox^ textBox_test, int index_cell) {
+		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
+			if (textBox_test->Text == this->dataGridView1->Rows[i]->Cells[index_cell]->Value->ToString()) {
+				this->dataGridView1->Rows[i]->Selected = true;
+				showData(i);
+			}
+		}
+	}
+	protected: void ONprogresBar(int max) {
+
+		this->tableLayoutPanel8->Visible = true;
+		int i = this->progressBar1->Value;
+		while (i <= max) {
+		this->progressBar1->PerformStep();
+		i++;
+		}
+		if (this->progressBar1->Value == 2) {
+			Sleep(1000);
+			this->label_OK->Text = "Tâche Effectuée !";
+		}
 	}
 	private: void showData(int index) {
 
@@ -1610,6 +1992,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 	{
 		Employe^ TableEmploye = gcnew Employe;
 		DataSet^ DS = TableEmploye->afficher();
+		this->tableLayoutPanel8->Visible = false;
 
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = "Employe";
@@ -1619,6 +2002,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 
 		activatebuttons();
 
+		this->tableLayoutPanel2->Visible = true;
+		this->tableLayoutPanel2->Enabled = true;
+		this->tableLayoutPanel3->Visible = true;
+		this->tableLayoutPanel3->Enabled = true;
+		this->button_afficher->Visible = true;
+		this->button_afficher->Enabled = true;
 		this->tableLayoutPanel4->Visible = true;
 		this->tableLayoutPanel4->Enabled = true;
 		this->tableLayoutPanel5->Visible = false;
@@ -1627,11 +2016,14 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->tableLayoutPanel6->Enabled = false;
 		this->tableLayoutPanel7->Visible = false;
 		this->tableLayoutPanel7->Enabled = false;
+		this->tableLayoutPanel9->Visible = false;
+		this->tableLayoutPanel9->Enabled = false;
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		Client^ TableClient = gcnew Client;
 		DataSet^ DS = TableClient->afficher();
+		this->tableLayoutPanel8->Visible = false;
 
 		this->dataGridView1->DataSource = DS;
 		this->dataGridView1->DataMember = "Client";
@@ -1642,6 +2034,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 
 		activatebuttons();
 
+		this->tableLayoutPanel2->Visible = true;
+		this->tableLayoutPanel2->Enabled = true;
+		this->tableLayoutPanel3->Visible = true;
+		this->tableLayoutPanel3->Enabled = true;
+		this->button_afficher->Visible = true;
+		this->button_afficher->Enabled = true;
 		this->tableLayoutPanel4->Visible = false;
 		this->tableLayoutPanel4->Enabled = false;
 		this->tableLayoutPanel5->Visible = true;
@@ -1650,11 +2048,14 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->tableLayoutPanel6->Enabled = false;
 		this->tableLayoutPanel7->Visible = false;
 		this->tableLayoutPanel7->Enabled = false;
+		this->tableLayoutPanel9->Visible = false;
+		this->tableLayoutPanel9->Enabled = false;
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		Commande^ TableCommande = gcnew Commande;
 		DataSet^ DS = TableCommande->afficher();
+		this->tableLayoutPanel8->Visible = false;
 
 		activatebuttons();
 
@@ -1663,6 +2064,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->dataGridView1->Columns[0]->Visible = false;
 		this->dataGridView1->Columns[7]->Visible = false;
 
+		this->tableLayoutPanel2->Visible = true;
+		this->tableLayoutPanel2->Enabled = true;
+		this->tableLayoutPanel3->Visible = true;
+		this->tableLayoutPanel3->Enabled = true;
+		this->button_afficher->Visible = true;
+		this->button_afficher->Enabled = true;
 		this->tableLayoutPanel4->Visible = false;
 		this->tableLayoutPanel4->Enabled = false;
 		this->tableLayoutPanel5->Visible = false;
@@ -1671,6 +2078,8 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->tableLayoutPanel6->Enabled = true;
 		this->tableLayoutPanel7->Visible = false;
 		this->tableLayoutPanel7->Enabled = false;
+		this->tableLayoutPanel9->Visible = false;
+		this->tableLayoutPanel9->Enabled = false;
 
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -1678,6 +2087,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		String^ NT = "Produit";
 		Produit^ TableProduit = gcnew Produit;
 		DataSet^ DS = TableProduit->afficher(NT);
+		this->tableLayoutPanel8->Visible = false;
 
 		activatebuttons();
 
@@ -1685,6 +2095,12 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->dataGridView1->DataMember = NT;
 		this->dataGridView1->Columns[0]->Visible = false;
 
+		this->tableLayoutPanel2->Visible = true;
+		this->tableLayoutPanel2->Enabled = true;
+		this->tableLayoutPanel3->Visible = true;
+		this->tableLayoutPanel3->Enabled = true;
+		this->button_afficher->Visible = true;
+		this->button_afficher->Enabled = true;
 		this->tableLayoutPanel4->Visible = false;
 		this->tableLayoutPanel4->Enabled = false;
 		this->tableLayoutPanel5->Visible = false;
@@ -1693,22 +2109,32 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		this->tableLayoutPanel6->Enabled = false;
 		this->tableLayoutPanel7->Visible = true;
 		this->tableLayoutPanel7->Enabled = true;
+		this->tableLayoutPanel9->Visible = false;
+		this->tableLayoutPanel9->Enabled = false;
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
-		String^ NT = "Statistiques";
-		Table^ TableEmploye = gcnew Table;
-		DataSet^ DS = TableEmploye->afficher(NT);
 
-		activatebuttons();
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = NT;
-
+		// Statistiques
+		this->dataGridView1->Visible = false;
+		
 		this->tableLayoutPanel4->Visible = false;
 		this->tableLayoutPanel4->Enabled = false;
 		this->tableLayoutPanel5->Visible = false;
 		this->tableLayoutPanel5->Enabled = false;
+		this->tableLayoutPanel6->Visible = false;
+		this->tableLayoutPanel6->Enabled = false;
+		this->tableLayoutPanel7->Visible = false;
+		this->tableLayoutPanel7->Enabled = false;
+		this->tableLayoutPanel9->Visible = true;
+		this->tableLayoutPanel9->Enabled = true;
+		this->tableLayoutPanel2->Visible = false;
+		this->tableLayoutPanel2->Enabled = false;
+		this->tableLayoutPanel3->Visible = false;
+		this->tableLayoutPanel3->Enabled = false;
+		this->button_afficher->Visible = false;
+		this->button_afficher->Enabled = false;
+		
 	}
 	private: System::Void button__first_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -1812,13 +2238,15 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 		else if (this->tableLayoutPanel6->Visible == true) {
 
 			Commande^ cmd = gcnew Commande;
-			cmd->ajouter(this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
+
+			cmd->ajouter(this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text, this->ID_client_click);
 		}
 		else if (this->tableLayoutPanel7->Visible == true) {
 
 			Produit^ pdt = gcnew Produit;
 			pdt->ajouter(this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
 		}
+		ONprogresBar(2);
 	}
 	private: System::Void button_modifier_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -1848,6 +2276,7 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			Produit^ pdt = gcnew Produit;
 			pdt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
 		}
+		ONprogresBar(3);
 	}
 	private: System::Void button_supprimer_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
@@ -1877,24 +2306,147 @@ private: System::Windows::Forms::TextBox^ textBox_d_total;
 			Produit^ pdt = gcnew Produit;
 			pdt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
 		}
+		ONprogresBar(2);
 	}
 	private: System::Void textBox_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
 	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (this->textBox_nom->Text == this->dataGridView1->Rows[i]->Cells[1]->Value->ToString()) {
-				this->dataGridView1->Rows[i]->Selected = true;
-				showData(i);
-			}
-		}
+		textBoxToGrid(textBox_nom, 2);
 	}
 	private: System::Void textBox_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
 	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (this->textBox_prenom->Text == this->dataGridView1->Rows[i]->Cells[2]->Value->ToString()) {
-				this->dataGridView1->Rows[i]->Selected = true;
-				showData(i);
+		textBoxToGrid(textBox_prenom, 2);
+	}
+	private: System::Void textBox_d_ref_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		textBoxToGrid(textBox_d_ref, 1);
+	}
+	private: System::Void textBox_p_desi_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		textBoxToGrid(textBox_p_desi, 1);
+	}
+	private: System::Void textBox_c_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		textBoxToGrid(textBox_c_nom, 1);
+	}
+	private: System::Void textBox_c_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		textBoxToGrid(textBox_c_prenom, 2);
+	}
+	private: System::Void textBox_c_date_TextChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		textBoxToGrid(textBox_c_date, 3);
+	}
+	private: System::Void textBox_d_Client_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
+		this->dataGridView2->Enabled = true;
+		this->dataGridView2->Visible = true;
+		System::Data::DataSet^ DS;
+		Client^ TableClient = gcnew Client;
+		DS = TableClient->afficher();
+		this->dataGridView2->DataSource = DS;
+		this->dataGridView2->DataMember = "Client";
+		for (int i = 0; i < (this->dataGridView2->RowCount) - 1; i++) {
+			if (textBox_d_Client->Text == this->dataGridView2->Rows[i]->Cells[1]->Value->ToString()) {
+				this->dataGridView2->Rows[i]->Selected = true;
 			}
 		}
 	}
+
+	private: System::Void button_s_panier_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("statPanierMoyenScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+
+	private: System::Void button_s_seuil_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("StatProduitsSousSeuilScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_10moins_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("Stat10MoinsVendusScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_10plus_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("Stat10PlusVendusScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_com_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("StatValeurComScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_achat_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("StatValeurAchatScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_total_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			String^ NT = "Produit";
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherStat("StatMontantClientScript.sql");
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = NT;
+		}
+	}
+	private: System::Void button_s_ca_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->tableLayoutPanel9->Visible == true) {
+			
+			Table^ TableProduit = gcnew Table;
+			DataSet^ DS = TableProduit->afficherCA("StatCAScript.sql", this->textBox_month->Text, this->textBox_year->Text);
+
+			this->dataGridView1->Visible = true;
+			this->dataGridView1->DataSource = DS;
+			this->dataGridView1->DataMember = "Date";
+		}
+	}
+	private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		ID_client_click = System::Convert::ToString(this->dataGridView2->CurrentRow->Cells[0]->Value);
+		this->dataGridView2->Visible = false;
+		this->dataGridView2->Enabled = false;
+	}
+
+
+
 };
 }

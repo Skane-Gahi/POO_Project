@@ -7,6 +7,8 @@ System::Data::DataSet^ Employe::afficher()
 	System::String^ querystring = File::ReadAllText("afficherEmployeScript.sql");
 	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, this->connection);
 
+	System::Data::DataSet^ dataset = gcnew System::Data::DataSet();
+
 	return this->ExecuteAdapter(adapter, "Employe");
 }
 
@@ -52,6 +54,7 @@ void Employe::supprimer(System::String^ ID, System::String^ ID_Adresse) {
 
 	command->Parameters->AddWithValue("@ID", System::Convert::ToInt32(ID));
 	command->Parameters->AddWithValue("@ID_Adresse", System::Convert::ToInt32(ID_Adresse));
+
 
 	this->ExecuteCommand(command);
 }

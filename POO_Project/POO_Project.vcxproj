@@ -162,6 +162,14 @@
     <None Include="modifierCommandeScript.sql" />
     <None Include="modifierEmployeScript.sql" />
     <None Include="modifierProduitScript.sql" />
+    <None Include="StatCAScript.sql" />
+    <None Include="StatMontantClientScript.sql" />
+    <None Include="StatProduitsSousSeuilScript.sql" />
+    <None Include="Stat10MoinsVendusScript.sql" />
+    <None Include="Stat10PlusVendusScript.sql" />
+    <None Include="StatPanierMoyenScript.sql" />
+    <None Include="StatValeurAchatScript.sql" />
+    <None Include="StatValeurComScript.sql" />
     <None Include="supprimerClientScript.sql" />
     <None Include="supprimerCommandeScript.sql" />
     <None Include="supprimerEmployeScript.sql" />
