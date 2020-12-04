@@ -126,7 +126,6 @@
     <ClCompile Include="Employe.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Produit.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Table.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +167,7 @@
     <None Include="Stat10MoinsVendusScript.sql" />
     <None Include="Stat10PlusVendusScript.sql" />
     <None Include="StatPanierMoyenScript.sql" />
+    <None Include="StatSimuScript.sql" />
     <None Include="StatValeurAchatScript.sql" />
     <None Include="StatValeurComScript.sql" />
     <None Include="supprimerClientScript.sql" />

@@ -41,9 +41,6 @@
     <ClCompile Include="MainForm.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="BackForm.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -131,6 +128,9 @@
       <Filter>Fichiers de ressources</Filter>
     </None>
     <None Include="StatCAScript.sql">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+    <None Include="StatSimuScript.sql">
       <Filter>Fichiers de ressources</Filter>
     </None>
   </ItemGroup>

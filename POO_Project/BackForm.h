@@ -219,6 +219,25 @@ private: System::Windows::Forms::Label^ label_Year;
 private: System::Windows::Forms::Label^ label_Month;
 private: System::Windows::Forms::TextBox^ textBox_month;
 private: System::Windows::Forms::TextBox^ textBox_year;
+private: System::Windows::Forms::TextBox^ textBox_marge;
+
+private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel10;
+private: System::Windows::Forms::TextBox^ textBox_remise;
+private: System::Windows::Forms::TextBox^ textBox_simutva;
+
+
+private: System::Windows::Forms::TextBox^ textBox_demarque;
+
+private: System::Windows::Forms::Label^ label_simutva;
+
+private: System::Windows::Forms::Label^ label_demarque;
+
+private: System::Windows::Forms::Label^ label_remise;
+
+private: System::Windows::Forms::Label^ label_marge;
+private: System::Windows::Forms::Button^ button_l_simu;
+
+
 
 
 
@@ -318,6 +337,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->label_OK = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel8 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel9 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->button_l_simu = (gcnew System::Windows::Forms::Button());
 			this->label_Year = (gcnew System::Windows::Forms::Label());
 			this->button_s_simul = (gcnew System::Windows::Forms::Button());
 			this->button_s_achat = (gcnew System::Windows::Forms::Button());
@@ -332,6 +352,15 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->textBox_month = (gcnew System::Windows::Forms::TextBox());
 			this->textBox_year = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->textBox_marge = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel10 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->label_simutva = (gcnew System::Windows::Forms::Label());
+			this->label_demarque = (gcnew System::Windows::Forms::Label());
+			this->label_remise = (gcnew System::Windows::Forms::Label());
+			this->textBox_demarque = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_simutva = (gcnew System::Windows::Forms::TextBox());
+			this->textBox_remise = (gcnew System::Windows::Forms::TextBox());
+			this->label_marge = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->tableLayoutPanel2->SuspendLayout();
@@ -343,6 +372,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->tableLayoutPanel8->SuspendLayout();
 			this->tableLayoutPanel9->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
+			this->tableLayoutPanel10->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -1611,6 +1641,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			// 
 			// progressBar1
 			// 
+			this->progressBar1->BackColor = System::Drawing::Color::White;
 			this->progressBar1->ForeColor = System::Drawing::Color::Lime;
 			this->progressBar1->Location = System::Drawing::Point(3, 3);
 			this->progressBar1->Name = L"progressBar1";
@@ -1650,11 +1681,13 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			// 
 			// tableLayoutPanel9
 			// 
+			this->tableLayoutPanel9->BackColor = System::Drawing::Color::Transparent;
 			this->tableLayoutPanel9->ColumnCount = 2;
 			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
+			this->tableLayoutPanel9->Controls->Add(this->button_l_simu, 1, 6);
 			this->tableLayoutPanel9->Controls->Add(this->label_Year, 0, 1);
 			this->tableLayoutPanel9->Controls->Add(this->button_s_simul, 0, 6);
 			this->tableLayoutPanel9->Controls->Add(this->button_s_achat, 1, 5);
@@ -1678,9 +1711,25 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
 			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
 			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 20)));
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 20)));
 			this->tableLayoutPanel9->Size = System::Drawing::Size(462, 493);
 			this->tableLayoutPanel9->TabIndex = 12;
 			this->tableLayoutPanel9->Visible = false;
+			// 
+			// button_l_simu
+			// 
+			this->button_l_simu->BackColor = System::Drawing::Color::White;
+			this->button_l_simu->Dock = System::Windows::Forms::DockStyle::Top;
+			this->button_l_simu->Enabled = false;
+			this->button_l_simu->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button_l_simu->Location = System::Drawing::Point(234, 413);
+			this->button_l_simu->Name = L"button_l_simu";
+			this->button_l_simu->Size = System::Drawing::Size(225, 64);
+			this->button_l_simu->TabIndex = 13;
+			this->button_l_simu->Text = L"Lancer Simulation";
+			this->button_l_simu->UseVisualStyleBackColor = false;
+			this->button_l_simu->Click += gcnew System::EventHandler(this, &Form::button_l_simu_Click);
 			// 
 			// label_Year
 			// 
@@ -1706,6 +1755,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->button_s_simul->TabIndex = 8;
 			this->button_s_simul->Text = L"Simulation";
 			this->button_s_simul->UseVisualStyleBackColor = false;
+			this->button_s_simul->Click += gcnew System::EventHandler(this, &Form::button_s_simul_Click);
 			// 
 			// button_s_achat
 			// 
@@ -1745,7 +1795,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->button_s_10plus->Name = L"button_s_10plus";
 			this->button_s_10plus->Size = System::Drawing::Size(225, 64);
 			this->button_s_10plus->TabIndex = 5;
-			this->button_s_10plus->Text = L"10 artcles les plus vendus";
+			this->button_s_10plus->Text = L"10 articles les plus vendus";
 			this->button_s_10plus->UseVisualStyleBackColor = false;
 			this->button_s_10plus->Click += gcnew System::EventHandler(this, &Form::button_s_10plus_Click);
 			// 
@@ -1781,13 +1831,13 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			// 
 			this->button_s_seuil->BackColor = System::Drawing::Color::White;
 			this->button_s_seuil->Dock = System::Windows::Forms::DockStyle::Top;
-			this->button_s_seuil->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button_s_seuil->Font = (gcnew System::Drawing::Font(L"Calibri", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_s_seuil->Location = System::Drawing::Point(3, 176);
 			this->button_s_seuil->Name = L"button_s_seuil";
 			this->button_s_seuil->Size = System::Drawing::Size(225, 64);
 			this->button_s_seuil->TabIndex = 2;
-			this->button_s_seuil->Text = L"Produits sous le seui de reapprovisonnement";
+			this->button_s_seuil->Text = L"Produits sous le seuil de reapprovisonnement";
 			this->button_s_seuil->UseVisualStyleBackColor = false;
 			this->button_s_seuil->Click += gcnew System::EventHandler(this, &Form::button_s_seuil_Click);
 			// 
@@ -1807,6 +1857,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			// button_s_ca
 			// 
 			this->button_s_ca->BackColor = System::Drawing::Color::White;
+			this->button_s_ca->Enabled = false;
 			this->button_s_ca->Font = (gcnew System::Drawing::Font(L"Calibri", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button_s_ca->Location = System::Drawing::Point(234, 97);
@@ -1848,6 +1899,7 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->textBox_year->Name = L"textBox_year";
 			this->textBox_year->Size = System::Drawing::Size(225, 33);
 			this->textBox_year->TabIndex = 10;
+			this->textBox_year->TextChanged += gcnew System::EventHandler(this, &Form::textBox_year_TextChanged);
 			// 
 			// dataGridView2
 			// 
@@ -1860,12 +1912,124 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->dataGridView2->Visible = false;
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form::dataGridView2_CellContentClick);
 			// 
+			// textBox_marge
+			// 
+			this->textBox_marge->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_marge->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_marge->Location = System::Drawing::Point(3, 47);
+			this->textBox_marge->Name = L"textBox_marge";
+			this->textBox_marge->Size = System::Drawing::Size(157, 32);
+			this->textBox_marge->TabIndex = 13;
+			// 
+			// tableLayoutPanel10
+			// 
+			this->tableLayoutPanel10->ColumnCount = 2;
+			this->tableLayoutPanel10->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel10->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel10->Controls->Add(this->label_simutva, 1, 2);
+			this->tableLayoutPanel10->Controls->Add(this->label_demarque, 0, 2);
+			this->tableLayoutPanel10->Controls->Add(this->label_remise, 1, 0);
+			this->tableLayoutPanel10->Controls->Add(this->textBox_demarque, 0, 3);
+			this->tableLayoutPanel10->Controls->Add(this->textBox_simutva, 1, 3);
+			this->tableLayoutPanel10->Controls->Add(this->textBox_remise, 1, 1);
+			this->tableLayoutPanel10->Controls->Add(this->textBox_marge, 0, 1);
+			this->tableLayoutPanel10->Controls->Add(this->label_marge, 0, 0);
+			this->tableLayoutPanel10->Enabled = false;
+			this->tableLayoutPanel10->Location = System::Drawing::Point(706, 460);
+			this->tableLayoutPanel10->Name = L"tableLayoutPanel10";
+			this->tableLayoutPanel10->RowCount = 4;
+			this->tableLayoutPanel10->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			this->tableLayoutPanel10->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			this->tableLayoutPanel10->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			this->tableLayoutPanel10->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
+			this->tableLayoutPanel10->Size = System::Drawing::Size(326, 177);
+			this->tableLayoutPanel10->TabIndex = 13;
+			this->tableLayoutPanel10->Visible = false;
+			// 
+			// label_simutva
+			// 
+			this->label_simutva->AutoSize = true;
+			this->label_simutva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_simutva->Location = System::Drawing::Point(166, 88);
+			this->label_simutva->Name = L"label_simutva";
+			this->label_simutva->Size = System::Drawing::Size(89, 25);
+			this->label_simutva->TabIndex = 20;
+			this->label_simutva->Text = L"TVA en %";
+			// 
+			// label_demarque
+			// 
+			this->label_demarque->AutoSize = true;
+			this->label_demarque->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_demarque->Location = System::Drawing::Point(3, 88);
+			this->label_demarque->Name = L"label_demarque";
+			this->label_demarque->Size = System::Drawing::Size(144, 25);
+			this->label_demarque->TabIndex = 19;
+			this->label_demarque->Text = L"Démarque en %";
+			// 
+			// label_remise
+			// 
+			this->label_remise->AutoSize = true;
+			this->label_remise->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_remise->Location = System::Drawing::Point(166, 0);
+			this->label_remise->Name = L"label_remise";
+			this->label_remise->Size = System::Drawing::Size(119, 25);
+			this->label_remise->TabIndex = 18;
+			this->label_remise->Text = L"Remise en %";
+			// 
+			// textBox_demarque
+			// 
+			this->textBox_demarque->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_demarque->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_demarque->Location = System::Drawing::Point(3, 135);
+			this->textBox_demarque->Name = L"textBox_demarque";
+			this->textBox_demarque->Size = System::Drawing::Size(157, 32);
+			this->textBox_demarque->TabIndex = 15;
+			// 
+			// textBox_simutva
+			// 
+			this->textBox_simutva->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_simutva->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_simutva->Location = System::Drawing::Point(166, 135);
+			this->textBox_simutva->Name = L"textBox_simutva";
+			this->textBox_simutva->Size = System::Drawing::Size(157, 32);
+			this->textBox_simutva->TabIndex = 16;
+			// 
+			// textBox_remise
+			// 
+			this->textBox_remise->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textBox_remise->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox_remise->Location = System::Drawing::Point(166, 47);
+			this->textBox_remise->Name = L"textBox_remise";
+			this->textBox_remise->Size = System::Drawing::Size(157, 32);
+			this->textBox_remise->TabIndex = 14;
+			// 
+			// label_marge
+			// 
+			this->label_marge->AutoSize = true;
+			this->label_marge->Font = (gcnew System::Drawing::Font(L"Cuprum", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label_marge->Location = System::Drawing::Point(3, 0);
+			this->label_marge->Name = L"label_marge";
+			this->label_marge->Size = System::Drawing::Size(112, 25);
+			this->label_marge->TabIndex = 17;
+			this->label_marge->Text = L"Marge en %";
+			// 
 			// Form
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Gray;
+			this->BackColor = System::Drawing::Color::DarkGray;
 			this->ClientSize = System::Drawing::Size(1421, 640);
+			this->Controls->Add(this->tableLayoutPanel10);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->tableLayoutPanel9);
 			this->Controls->Add(this->tableLayoutPanel8);
@@ -1899,554 +2063,52 @@ private: System::Windows::Forms::TextBox^ textBox_year;
 			this->tableLayoutPanel9->ResumeLayout(false);
 			this->tableLayoutPanel9->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
+			this->tableLayoutPanel10->ResumeLayout(false);
+			this->tableLayoutPanel10->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void Form_Load(System::Object^ sender, System::EventArgs^ e) 
-	{
-		// Set Maximum to the total number of files to copy.
-		this->progressBar1->Maximum = 2;
-
-		// Set the initial value of the ProgressBar.
-		this->progressBar1->Minimum = 1;
-		this->progressBar1->Value = 1;
-
-		// Set the Step property to a value of 1 to represent each file being copied.
-		this->progressBar1->Step = 1;
-		
-	}
-	private: void activatebuttons() 
-	{
-		this->tableLayoutPanel2->Enabled = true;
-		this->tableLayoutPanel3->Enabled = true;
-		this->button_afficher->Enabled = true;
-	}
-	private: void textBoxToGrid(System::Windows::Forms::TextBox^ textBox_test, int index_cell) {
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (textBox_test->Text == this->dataGridView1->Rows[i]->Cells[index_cell]->Value->ToString()) {
-				this->dataGridView1->Rows[i]->Selected = true;
-				showData(i);
-			}
-		}
-	}
-	protected: void ONprogresBar(int max) {
-
-		this->tableLayoutPanel8->Visible = true;
-		int i = this->progressBar1->Value;
-		while (i <= max) {
-		this->progressBar1->PerformStep();
-		i++;
-		}
-		if (this->progressBar1->Value == 2) {
-			Sleep(1000);
-			this->label_OK->Text = "Tâche Effectuée !";
-		}
-	}
-	private: void showData(int index) {
-
-		if(this->tableLayoutPanel4->Visible == true)
-		{
-			this->textBox_nom->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
-			this->textBox_prenom->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
-			this->textBox_date_embauche->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
-			this->textBox_poste->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
-			this->textBox_adresse->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
-			this->textBox_ville->Text = this->dataGridView1->Rows[index]->Cells[7]->Value->ToString();
-			this->textBox_cp->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
-		}
-		else if (this->tableLayoutPanel5->Visible == true)
-		{
-			this->textBox_c_nom->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
-			this->textBox_c_prenom->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
-			this->textBox_c_date->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
-			this->textBox_c_nbcommande->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
-			this->textBox_c_adrfact->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
-			this->textBox_c_villefact->Text = this->dataGridView1->Rows[index]->Cells[7]->Value->ToString();
-			this->textBox_c_cpfact->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
-			this->textBox_c_adrliv->Text = this->dataGridView1->Rows[index]->Cells[10]->Value->ToString();
-			this->textBox_c_villeliv->Text = this->dataGridView1->Rows[index]->Cells[11]->Value->ToString();
-			this->textBox1_c_cpliv->Text = this->dataGridView1->Rows[index]->Cells[12]->Value->ToString();
-		}
-		else if (this->tableLayoutPanel6->Visible == true)
-		{
-			this->textBox_d_ref->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
-			this->textBox_d_valide->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
-			this->textBox_d_envoi->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
-			this->textBox_d_paiement->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
-			this->textBox_d_moyen->Text = this->dataGridView1->Rows[index]->Cells[5]->Value->ToString();
-			this->textBox_d_total->Text = this->dataGridView1->Rows[index]->Cells[6]->Value->ToString();
-			this->textBox_d_produits->Text = this->dataGridView1->Rows[index]->Cells[8]->Value->ToString();
-			this->textBox_d_qtes->Text = this->dataGridView1->Rows[index]->Cells[9]->Value->ToString();
-		}
-		else if (this->tableLayoutPanel7->Visible == true) 
-		{
-			this->textBox_p_desi->Text = this->dataGridView1->Rows[index]->Cells[1]->Value->ToString();
-			this->textBox_p_pht->Text = this->dataGridView1->Rows[index]->Cells[2]->Value->ToString();
-			this->textBox_p_qte->Text = this->dataGridView1->Rows[index]->Cells[3]->Value->ToString();
-			this->textBox_p_seuil->Text = this->dataGridView1->Rows[index]->Cells[4]->Value->ToString();
-			this->textBox_p_tva->Text = this->dataGridView1->Rows[index]->Cells[5]->Value->ToString();
-		}
-	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		Employe^ TableEmploye = gcnew Employe;
-		DataSet^ DS = TableEmploye->afficher();
-		this->tableLayoutPanel8->Visible = false;
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = "Employe";
-		this->dataGridView1->Columns[0]->Visible = false;
-		this->dataGridView1->Columns[5]->Visible = false;
-		this->dataGridView1->Rows[0]->Selected = true;
-
-		activatebuttons();
-
-		this->tableLayoutPanel2->Visible = true;
-		this->tableLayoutPanel2->Enabled = true;
-		this->tableLayoutPanel3->Visible = true;
-		this->tableLayoutPanel3->Enabled = true;
-		this->button_afficher->Visible = true;
-		this->button_afficher->Enabled = true;
-		this->tableLayoutPanel4->Visible = true;
-		this->tableLayoutPanel4->Enabled = true;
-		this->tableLayoutPanel5->Visible = false;
-		this->tableLayoutPanel5->Enabled = false;
-		this->tableLayoutPanel6->Visible = false;
-		this->tableLayoutPanel6->Enabled = false;
-		this->tableLayoutPanel7->Visible = false;
-		this->tableLayoutPanel7->Enabled = false;
-		this->tableLayoutPanel9->Visible = false;
-		this->tableLayoutPanel9->Enabled = false;
-	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		Client^ TableClient = gcnew Client;
-		DataSet^ DS = TableClient->afficher();
-		this->tableLayoutPanel8->Visible = false;
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = "Client";
-		this->dataGridView1->Columns[0]->Visible = false;
-		this->dataGridView1->Columns[5]->Visible = false;
-		this->dataGridView1->Columns[9]->Visible = false;
-		this->dataGridView1->Rows[0]->Selected = true;
-
-		activatebuttons();
-
-		this->tableLayoutPanel2->Visible = true;
-		this->tableLayoutPanel2->Enabled = true;
-		this->tableLayoutPanel3->Visible = true;
-		this->tableLayoutPanel3->Enabled = true;
-		this->button_afficher->Visible = true;
-		this->button_afficher->Enabled = true;
-		this->tableLayoutPanel4->Visible = false;
-		this->tableLayoutPanel4->Enabled = false;
-		this->tableLayoutPanel5->Visible = true;
-		this->tableLayoutPanel5->Enabled = true;
-		this->tableLayoutPanel6->Visible = false;
-		this->tableLayoutPanel6->Enabled = false;
-		this->tableLayoutPanel7->Visible = false;
-		this->tableLayoutPanel7->Enabled = false;
-		this->tableLayoutPanel9->Visible = false;
-		this->tableLayoutPanel9->Enabled = false;
-	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		Commande^ TableCommande = gcnew Commande;
-		DataSet^ DS = TableCommande->afficher();
-		this->tableLayoutPanel8->Visible = false;
-
-		activatebuttons();
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = "Commande";
-		this->dataGridView1->Columns[0]->Visible = false;
-		this->dataGridView1->Columns[7]->Visible = false;
-
-		this->tableLayoutPanel2->Visible = true;
-		this->tableLayoutPanel2->Enabled = true;
-		this->tableLayoutPanel3->Visible = true;
-		this->tableLayoutPanel3->Enabled = true;
-		this->button_afficher->Visible = true;
-		this->button_afficher->Enabled = true;
-		this->tableLayoutPanel4->Visible = false;
-		this->tableLayoutPanel4->Enabled = false;
-		this->tableLayoutPanel5->Visible = false;
-		this->tableLayoutPanel5->Enabled = false;
-		this->tableLayoutPanel6->Visible = true;
-		this->tableLayoutPanel6->Enabled = true;
-		this->tableLayoutPanel7->Visible = false;
-		this->tableLayoutPanel7->Enabled = false;
-		this->tableLayoutPanel9->Visible = false;
-		this->tableLayoutPanel9->Enabled = false;
-
-	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		String^ NT = "Produit";
-		Produit^ TableProduit = gcnew Produit;
-		DataSet^ DS = TableProduit->afficher(NT);
-		this->tableLayoutPanel8->Visible = false;
-
-		activatebuttons();
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->DataMember = NT;
-		this->dataGridView1->Columns[0]->Visible = false;
-
-		this->tableLayoutPanel2->Visible = true;
-		this->tableLayoutPanel2->Enabled = true;
-		this->tableLayoutPanel3->Visible = true;
-		this->tableLayoutPanel3->Enabled = true;
-		this->button_afficher->Visible = true;
-		this->button_afficher->Enabled = true;
-		this->tableLayoutPanel4->Visible = false;
-		this->tableLayoutPanel4->Enabled = false;
-		this->tableLayoutPanel5->Visible = false;
-		this->tableLayoutPanel5->Enabled = false;
-		this->tableLayoutPanel6->Visible = false;
-		this->tableLayoutPanel6->Enabled = false;
-		this->tableLayoutPanel7->Visible = true;
-		this->tableLayoutPanel7->Enabled = true;
-		this->tableLayoutPanel9->Visible = false;
-		this->tableLayoutPanel9->Enabled = false;
-	}
-	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-
-		// Statistiques
-		this->dataGridView1->Visible = false;
-		
-		this->tableLayoutPanel4->Visible = false;
-		this->tableLayoutPanel4->Enabled = false;
-		this->tableLayoutPanel5->Visible = false;
-		this->tableLayoutPanel5->Enabled = false;
-		this->tableLayoutPanel6->Visible = false;
-		this->tableLayoutPanel6->Enabled = false;
-		this->tableLayoutPanel7->Visible = false;
-		this->tableLayoutPanel7->Enabled = false;
-		this->tableLayoutPanel9->Visible = true;
-		this->tableLayoutPanel9->Enabled = true;
-		this->tableLayoutPanel2->Visible = false;
-		this->tableLayoutPanel2->Enabled = false;
-		this->tableLayoutPanel3->Visible = false;
-		this->tableLayoutPanel3->Enabled = false;
-		this->button_afficher->Visible = false;
-		this->button_afficher->Enabled = false;
-		
-	}
-	private: System::Void button__first_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		this->dataGridView1->Rows[0]->Selected = true;
-
-		showData(0);
-	}
-	private: System::Void button_previous_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (this->dataGridView1->Rows[i]->Selected == true) {
-				Index = i;
-			}
-		}
-
-		if (this->dataGridView1->Rows[0]->Selected == true) {
-			Index = (this->dataGridView1->RowCount)-1;
-			this->dataGridView1->Rows[0]->Selected = false;
-		}
-
-		else {
-			this->dataGridView1->Rows[Index]->Selected = false;
-		}
-
-
-		this->dataGridView1->Rows[Index - 1]->Selected = true;
-
-		showData(Index - 1);
-	}
-	private: System::Void button_next_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) -1; i++) {
-			if (this->dataGridView1->Rows[i]->Selected == true) {
-				Index = i;
-			}
-		}
-
-		if (this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Selected == true) {
-			Index = -1;
-			this->dataGridView1->Rows[(this->dataGridView1->RowCount) - 2]->Selected = false;
-		}
-
-		else {
-			this->dataGridView1->Rows[Index]->Selected = false;
-		}
-
-		this->dataGridView1->Rows[Index + 1]->Selected = true;
-
-		showData(Index + 1);
-	}
-
-	private: System::Void button_last_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		this->dataGridView1->Rows[(this->dataGridView1->RowCount)-2]->Selected = true;
-
-		showData((this->dataGridView1->RowCount) - 2);
-	}
-	private: System::Void button_afficher_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		System::Data::DataSet^ DS;
-
-		if (this->tableLayoutPanel4->Visible == true) {
-			
-			Employe^ TableEmploye = gcnew Employe;
-			DS = TableEmploye->afficher();
-		}
-		else if (this->tableLayoutPanel5->Visible == true) {
-
-			Client^ TableClient = gcnew Client;
-			DS = TableClient->afficher();
-		}
-		else if (this->tableLayoutPanel6->Visible == true) {
-
-			Commande^ TableCommande = gcnew Commande;
-			DS = TableCommande->afficher();
-		}
-		else if (this->tableLayoutPanel7->Visible == true) {
-
-			String^ NT = "Produit";
-			Produit^ TableProduit = gcnew Produit;
-			DS = TableProduit->afficher(NT);
-		}
-
-
-		this->dataGridView1->DataSource = DS;
-		this->dataGridView1->Rows[0]->Selected = true;
-		showData(0);
-	}
-	private: System::Void button_ajouter_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		if (this->tableLayoutPanel4->Visible == true) {
-			
-			Employe^ emp = gcnew Employe;
-			emp->ajouter(this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
-		}
-		else if (this->tableLayoutPanel5->Visible == true) {
-
-			Client^ clt = gcnew Client;
-			clt->ajouter(this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
-		}
-		else if (this->tableLayoutPanel6->Visible == true) {
-
-			Commande^ cmd = gcnew Commande;
-
-			cmd->ajouter(this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text, this->ID_client_click);
-		}
-		else if (this->tableLayoutPanel7->Visible == true) {
-
-			Produit^ pdt = gcnew Produit;
-			pdt->ajouter(this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
-		}
-		ONprogresBar(2);
-	}
-	private: System::Void button_modifier_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (this->dataGridView1->Rows[i]->Selected == true) {
-				Index = i;
-			}
-		}
-
-		if (this->tableLayoutPanel4->Visible == true) {
-
-			Employe^ emp = gcnew Employe;
-			emp->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_nom->Text, this->textBox_prenom->Text, this->textBox_date_embauche->Text, this->textBox_poste->Text, this->textBox_adresse->Text, this->textBox_ville->Text, this->textBox_cp->Text);
-		}
-		else if (this->tableLayoutPanel5->Visible == true) {
-
-			Client^ clt = gcnew Client;
-			clt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString(), this->textBox_c_nom->Text, this->textBox_c_prenom->Text, this->textBox_c_date->Text, this->textBox_c_nbcommande->Text, this->textBox_c_adrfact->Text, this->textBox_c_villefact->Text, this->textBox_c_cpfact->Text, this->textBox_c_adrliv->Text, this->textBox_c_villeliv->Text, this->textBox1_c_cpliv->Text);
- 		}
-		else if (this->tableLayoutPanel6->Visible == true) {
-
-			Commande^ cmd = gcnew Commande;
-			cmd->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_d_ref->Text, this->textBox_d_valide->Text, this->textBox_d_envoi->Text, this->textBox_d_paiement->Text, this->textBox_d_moyen->Text, this->textBox_d_total->Text, this->textBox_d_produits->Text, this->textBox_d_qtes->Text);
-		}
-		else if (this->tableLayoutPanel7->Visible == true) {
-
-			Produit^ pdt = gcnew Produit;
-			pdt->modifier(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->textBox_p_desi->Text, this->textBox_p_pht->Text, this->textBox_p_qte->Text, this->textBox_p_seuil->Text, this->textBox_p_tva->Text);
-		}
-		ONprogresBar(3);
-	}
-	private: System::Void button_supprimer_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-		for (int i = 0; i < (this->dataGridView1->RowCount) - 1; i++) {
-			if (this->dataGridView1->Rows[i]->Selected == true) {
-				Index = i;
-			}
-		}
-
-		if (this->tableLayoutPanel4->Visible == true) {
-
-			Employe^ emp = gcnew Employe;
-			emp->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString());
-		}
-		else if (this->tableLayoutPanel5->Visible == true) {
-			
-			Client^ clt = gcnew Client;
-			clt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[5]->Value->ToString(), this->dataGridView1->Rows[Index]->Cells[9]->Value->ToString());
-		}
-		else if (this->tableLayoutPanel6->Visible == true) {
-
-			Commande^ cmd = gcnew Commande;
-			cmd->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
-		}
-		else if (this->tableLayoutPanel7->Visible == true) {
-
-			Produit^ pdt = gcnew Produit;
-			pdt->supprimer(this->dataGridView1->Rows[Index]->Cells[0]->Value->ToString());
-		}
-		ONprogresBar(2);
-	}
-	private: System::Void textBox_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_nom, 2);
-	}
-	private: System::Void textBox_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_prenom, 2);
-	}
-	private: System::Void textBox_d_ref_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_d_ref, 1);
-	}
-	private: System::Void textBox_p_desi_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_p_desi, 1);
-	}
-	private: System::Void textBox_c_nom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_c_nom, 1);
-	}
-	private: System::Void textBox_c_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_c_prenom, 2);
-	}
-	private: System::Void textBox_c_date_TextChanged(System::Object^ sender, System::EventArgs^ e) 
-	{
-		textBoxToGrid(textBox_c_date, 3);
-	}
-	private: System::Void textBox_d_Client_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-		this->dataGridView2->Enabled = true;
-		this->dataGridView2->Visible = true;
-		System::Data::DataSet^ DS;
-		Client^ TableClient = gcnew Client;
-		DS = TableClient->afficher();
-		this->dataGridView2->DataSource = DS;
-		this->dataGridView2->DataMember = "Client";
-		for (int i = 0; i < (this->dataGridView2->RowCount) - 1; i++) {
-			if (textBox_d_Client->Text == this->dataGridView2->Rows[i]->Cells[1]->Value->ToString()) {
-				this->dataGridView2->Rows[i]->Selected = true;
-			}
-		}
-	}
-
-	private: System::Void button_s_panier_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("statPanierMoyenScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-
-	private: System::Void button_s_seuil_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("StatProduitsSousSeuilScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_10moins_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("Stat10MoinsVendusScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_10plus_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("Stat10PlusVendusScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_com_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("StatValeurComScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_achat_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("StatValeurAchatScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_total_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			String^ NT = "Produit";
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherStat("StatMontantClientScript.sql");
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = NT;
-		}
-	}
-	private: System::Void button_s_ca_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->tableLayoutPanel9->Visible == true) {
-			
-			Table^ TableProduit = gcnew Table;
-			DataSet^ DS = TableProduit->afficherCA("StatCAScript.sql", this->textBox_month->Text, this->textBox_year->Text);
-
-			this->dataGridView1->Visible = true;
-			this->dataGridView1->DataSource = DS;
-			this->dataGridView1->DataMember = "Date";
-		}
-	}
-	private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		ID_client_click = System::Convert::ToString(this->dataGridView2->CurrentRow->Cells[0]->Value);
-		this->dataGridView2->Visible = false;
-		this->dataGridView2->Enabled = false;
-	}
-
-
+private:
+	// Events
+	 System::Void Form_Load(System::Object^ sender, System::EventArgs^ e);
+	 void activatebuttons();
+	 void textBoxToGrid(System::Windows::Forms::TextBox^ textBox_test, int index_cell);
+	 void ONprogresBar(int max);
+	 void showData(int index);
+	 System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button5_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button__first_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_previous_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_next_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_last_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_afficher_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_ajouter_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_modifier_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_supprimer_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_nom_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_d_ref_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_p_desi_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_c_nom_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_c_prenom_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_c_date_TextChanged(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_d_Client_TextChanged_1(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_panier_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_seuil_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_10moins_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_10plus_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_com_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_achat_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_total_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_s_ca_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+	 System::Void button_s_simul_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void button_l_simu_Click(System::Object^ sender, System::EventArgs^ e);
+	 System::Void textBox_year_TextChanged(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

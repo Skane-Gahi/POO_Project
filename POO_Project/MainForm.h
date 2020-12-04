@@ -171,7 +171,7 @@ namespace POOProject {
 			this->button_connecter->Name = L"button_connecter";
 			this->button_connecter->Size = System::Drawing::Size(123, 33);
 			this->button_connecter->TabIndex = 5;
-			this->button_connecter->Text = L"Connecter";
+			this->button_connecter->Text = L"Connection";
 			this->button_connecter->UseVisualStyleBackColor = false;
 			this->button_connecter->Click += gcnew System::EventHandler(this, &MyForm::button_connecter_Click);
 			// 
@@ -267,8 +267,7 @@ namespace POOProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->BackColor = System::Drawing::Color::DarkGray;
 			this->ClientSize = System::Drawing::Size(618, 317);
 			this->Controls->Add(this->tableLayoutPanel2);
 			this->Controls->Add(this->tableLayoutPanel1);
@@ -307,7 +306,7 @@ namespace POOProject {
 
 		if (dataset->Tables[0]->Rows->Count == 0)
 		{
-			MessageBox::Show("Pas youhou, je te connais pas sale fdp", "#sdfdelapplicatif");
+			MessageBox::Show("You are not registered.", "Error");
 		}
 		else
 		{

@@ -64,6 +64,20 @@ System::Data::DataSet^ Table::afficherStat(System::String^ path)
 	return this->ExecuteAdapter(adapter, "Produit");
 }
 
+System::Data::DataSet^ Table::afficherSimu(System::String^ marge, System::String^ remise, System::String^ demarque, System::String^ simutva)
+{
+	System::String^ querystring = File::ReadAllText("StatSimuScript.sql");
+
+	System::Data::SqlClient::SqlDataAdapter^ adapter = gcnew System::Data::SqlClient::SqlDataAdapter(querystring, connection);
+
+	adapter->SelectCommand->Parameters->AddWithValue("@marge", System::Convert::ToInt32(marge));
+	adapter->SelectCommand->Parameters->AddWithValue("@remise", System::Convert::ToInt32(remise));
+	adapter->SelectCommand->Parameters->AddWithValue("@demarque", System::Convert::ToInt32(demarque));
+	adapter->SelectCommand->Parameters->AddWithValue("@simutva", System::Convert::ToInt32(simutva));
+
+	return this->ExecuteAdapter(adapter, "Simulation");
+}
+
 System::Data::DataSet^ Table::afficherCA(System::String^ path, System::String^ month , System::String^ year)
 {
 	System::String^ querystring = File::ReadAllText(path);
